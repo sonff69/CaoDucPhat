@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cao Đức Phát - Digital Portfolio</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonts hỗ trợ tiếng Việt 100% không lỗi phông -->
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Phông chữ Google Fonts tối ưu hóa 100% hiển thị tiếng Việt dấu chuẩn, không bị lỗi vỡ ký tự -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -31,13 +31,13 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, .serif-font {
+        h1, h2, h3, h4, h5, .serif-font {
             font-family: 'Playfair Display', 'Georgia', serif;
         }
 
         .arabic-brand {
             font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .moroccan-arch {
@@ -96,7 +96,35 @@
                               radial-gradient(var(--cream-dark) 20%, transparent 20%);
             background-size: 40px 40px;
             background-position: 0 0, 20px 20px;
-            opacity: 0.4;
+            opacity: 0.3;
+        }
+
+        /* Thư mục Bài 1 style */
+        .tree-node {
+            padding-left: 1.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .tree-node::before {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #475569;
+        }
+        .tree-node:last-child::before {
+            height: 0.75rem;
+        }
+        .tree-node::after {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            top: 0.75rem;
+            width: 0.75rem;
+            height: 2px;
+            background-color: #475569;
         }
     </style>
 </head>
@@ -309,34 +337,34 @@
             <!-- Tab Buttons -->
             <div class="flex flex-wrap justify-center gap-2 border-b border-amber-800/10 pb-4">
                 <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-btn active px-4 py-2.5 rounded-lg text-xs font-semibold border border-amber-800/10 hover:border-amber-700 transition">
-                    <i class="fa-solid fa-folder-open mr-1"></i> Bài 1: Quản lý tệp (12 Bước)
+                    <i class="fa-solid fa-folder-open mr-1"></i> Bài 1: Thao tác tệp và thư mục (12 Bước)
                 </button>
                 <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-semibold border border-amber-800/10 hover:border-amber-700 transition">
-                    <i class="fa-solid fa-magnifying-glass mr-1"></i> Bài 2: Khai thác dữ liệu
+                    <i class="fa-solid fa-magnifying-glass mr-1"></i> Bài 2: Tìm kiếm & đánh giá thông tin
                 </button>
                 <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-semibold border border-amber-800/10 hover:border-amber-700 transition">
-                    <i class="fa-solid fa-terminal mr-1"></i> Bài 3: Prompt Lab
+                    <i class="fa-solid fa-terminal mr-1"></i> Bài 3: Viết prompt hiệu quả
                 </button>
                 <button onclick="switchTab('tab4')" id="btn-tab4" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-semibold border border-amber-800/10 hover:border-amber-700 transition">
-                    <i class="fa-solid fa-users mr-1"></i> Bài 4: Hợp tác số
+                    <i class="fa-solid fa-users mr-1"></i> Bài 4: Hợp tác số nhóm
                 </button>
                 <button onclick="switchTab('tab5')" id="btn-tab5" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-semibold border border-amber-800/10 hover:border-amber-700 transition">
-                    <i class="fa-solid fa-palette mr-1"></i> Bài 5: Sáng tạo nội dung
+                    <i class="fa-solid fa-palette mr-1"></i> Bài 5: Sáng tạo nội dung với AI
                 </button>
                 <button onclick="switchTab('tab6')" id="btn-tab6" class="tab-btn px-4 py-2.5 rounded-lg text-xs font-semibold border border-amber-800/10 hover:border-amber-700 transition">
-                    <i class="fa-solid fa-scale-balanced mr-1"></i> Bài 6: Liêm chính học thuật
+                    <i class="fa-solid fa-scale-balanced mr-1"></i> Bài 6: Sử dụng AI có trách nhiệm
                 </button>
             </div>
 
             <!-- Tab Viewport Container -->
             <div class="bg-white/40 backdrop-blur-md rounded-3xl border border-amber-800/10 p-8 sm:p-12 shadow-sm min-h-[500px]">
                 
-                <!-- TAB 1: FILE OPERATIONS (12 STEPS COMPLETE) -->
+                <!-- TAB 1: FILE OPERATIONS (12 STEPS COMPLETE WITH DIRECTORY TREE MAP) -->
                 <div id="tab1-content" class="tab-pane space-y-8">
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6">
                         <div class="space-y-2">
-                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 1</span>
-                            <h3 class="text-2xl font-bold text-amber-950">Thao tác cơ bản với tệp tin và thư mục</h3>
+                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 1: Thao tác cơ bản với tệp tin và thư mục</span>
+                            <h3 class="text-2xl font-bold text-amber-950">Quản trị dữ liệu cơ bản trên Windows</h3>
                         </div>
                         <div class="text-xs text-amber-800 bg-amber-800/5 px-4 py-2 rounded-full font-medium w-fit">
                             Kỹ năng: Hệ thống hóa & Sắp xếp dữ liệu học tập khoa học
@@ -348,56 +376,78 @@
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-bullseye"></i> Mục tiêu bài học:</h4>
                                 <p class="text-xs text-amber-900 leading-relaxed">
-                                    Làm quen với hệ thống quản lý tệp tin Windows File Explorer, rèn luyện tư duy phân cấp thư mục khoa học để tổ chức không gian lưu trữ học liệu bền vững suốt 4 năm học.
+                                    Làm quen sâu sắc với hệ thống Windows File Explorer, tối ưu hóa các thao tác xử lý tập tin, kiến tạo nền tảng tư duy lưu trữ khoa học, gọn gàng cho các đề án phức tạp sau này.
                                 </p>
                             </div>
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-lightbulb"></i> Bài học rút ra:</h4>
                                 <p class="text-xs text-amber-900 leading-relaxed">
-                                    Sắp xếp file máy tính cũng giống như sắp xếp ghi chú từ vựng. Khi có quy luật lưu trữ khoa học, chúng ta không chỉ tăng năng suất làm việc nhóm mà còn tránh được các rủi ro mất mát dữ liệu học tập quý giá.
+                                    Quản trị file cũng là một kỹ năng tư duy logic. Việc đặt tên đúng quy chuẩn, phân cấp dữ liệu giúp rút ngắn thời gian tìm kiếm lên đến 90%, hỗ trợ tối ưu năng suất hoạt động của cá nhân và tập thể.
                                 </p>
+                            </div>
+
+                            <!-- SƠ ĐỒ CẤU TRÚC THƯ MỤC TRỰC QUAN -->
+                            <div class="bg-slate-900 rounded-xl p-4 text-[#FDF5E6] font-mono text-[11px] border border-slate-700">
+                                <h5 class="text-amber-400 font-bold mb-3 border-b border-slate-700 pb-1 uppercase tracking-wider"><i class="fa-solid fa-sitemap mr-1"></i> Sơ đồ cấu trúc thư mục thực tế</h5>
+                                <div class="space-y-1">
+                                    <div>📁 This PC</div>
+                                    <div class="tree-node">📁 Documents</div>
+                                    <div class="tree-node ml-4" id="tree-root-folder">📁 ThucHanh_CaoDucPhat <span class="text-amber-500 font-bold" id="tree-indicator-root"></span></div>
+                                    <div class="tree-node ml-8" id="tree-sub-folder">📁 TaiLieu <span class="text-amber-500 font-bold" id="tree-indicator-sub"></span></div>
+                                    <div class="tree-node ml-12" id="tree-file-1">📄 GhiChuQuanTrong.txt <span class="text-[#C0392B] font-bold" id="tree-indicator-f1"></span></div>
+                                    <div class="tree-node ml-12" id="tree-file-2">📄 DiChuyen.txt <span class="text-emerald-500 font-bold" id="tree-indicator-f2"></span></div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="lg:col-span-7 space-y-4">
-                            <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-play"></i> Mô phỏng 12 bước thực hành:</h4>
-                            <!-- Interactive 12-Step Viewer -->
-                            <div class="bg-slate-900 rounded-2xl p-6 text-[#FDF5E6] font-mono text-xs space-y-4 border border-slate-700">
+                            <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider flex justify-between">
+                                <span><i class="fa-solid fa-play"></i> Mô phỏng tiến trình 12 bước:</span>
+                                <span class="text-xs text-amber-800" id="step-counter">Bước 1/12</span>
+                            </h4>
+                            
+                            <!-- Interactive Step Slider Window -->
+                            <div class="bg-slate-900 rounded-2xl p-6 text-[#FDF5E6] font-mono text-xs space-y-6 border border-slate-700 min-h-[220px] flex flex-col justify-between">
                                 <div class="flex justify-between items-center border-b border-slate-700 pb-3">
                                     <div class="flex items-center gap-2">
                                         <span class="w-3 h-3 rounded-full bg-red-500 block"></span>
                                         <span class="w-3 h-3 rounded-full bg-yellow-500 block"></span>
                                         <span class="w-3 h-3 rounded-full bg-green-500 block"></span>
                                     </div>
-                                    <span class="text-[10px] text-slate-400">File Explorer Simulator v1.0</span>
+                                    <span class="text-[10px] text-slate-400">Windows Shell Emulator</span>
                                 </div>
-                                <div id="step-desc-area" class="min-h-[100px] text-slate-300 leading-relaxed text-sm">
-                                    Nhấp vào các nút số bên dưới để chạy mô phỏng chi tiết quy trình 12 bước thực tế mà mình đã thực hiện trên Windows.
+                                <div id="step-desc-area" class="text-slate-300 leading-relaxed text-sm flex-1">
+                                    <!-- Dynamic step description -->
                                 </div>
-                                <div class="grid grid-cols-6 gap-2 pt-4">
-                                    <button onclick="playStep(1)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">1</button>
-                                    <button onclick="playStep(2)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">2</button>
-                                    <button onclick="playStep(3)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">3</button>
-                                    <button onclick="playStep(4)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">4</button>
-                                    <button onclick="playStep(5)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">5</button>
-                                    <button onclick="playStep(6)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">6</button>
-                                    <button onclick="playStep(7)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">7</button>
-                                    <button onclick="playStep(8)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">8</button>
-                                    <button onclick="playStep(9)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">9</button>
-                                    <button onclick="playStep(10)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">10</button>
-                                    <button onclick="playStep(11)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">11</button>
-                                    <button onclick="playStep(12)" class="step-btn py-2 bg-slate-800 rounded hover:bg-amber-700 transition">12</button>
+                                <div class="flex justify-between items-center pt-4 border-t border-slate-800">
+                                    <button onclick="prevStep()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded text-slate-300 transition"><i class="fa-solid fa-chevron-left mr-1"></i> Trước</button>
+                                    <button onclick="nextStep()" class="px-4 py-2 bg-amber-800 hover:bg-amber-700 rounded text-white transition">Sau <i class="fa-solid fa-chevron-right ml-1"></i></button>
                                 </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-6 gap-2">
+                                <button onclick="selectSpecificStep(1)" id="step-dot-1" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">1</button>
+                                <button onclick="selectSpecificStep(2)" id="step-dot-2" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">2</button>
+                                <button onclick="selectSpecificStep(3)" id="step-dot-3" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">3</button>
+                                <button onclick="selectSpecificStep(4)" id="step-dot-4" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">4</button>
+                                <button onclick="selectSpecificStep(5)" id="step-dot-5" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">5</button>
+                                <button onclick="selectSpecificStep(6)" id="step-dot-6" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">6</button>
+                                <button onclick="selectSpecificStep(7)" id="step-dot-7" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">7</button>
+                                <button onclick="selectSpecificStep(8)" id="step-dot-8" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">8</button>
+                                <button onclick="selectSpecificStep(9)" id="step-dot-9" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">9</button>
+                                <button onclick="selectSpecificStep(10)" id="step-dot-10" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">10</button>
+                                <button onclick="selectSpecificStep(11)" id="step-dot-11" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">11</button>
+                                <button onclick="selectSpecificStep(12)" id="step-dot-12" class="py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition">12</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- TAB 2: DATA MINING (FULL 12 RESOURCES) -->
+                <!-- TAB 2: DATA MINING (FULL 12 RESOURCES DETAILED DRAWER) -->
                 <div id="tab2-content" class="tab-pane hidden space-y-8">
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6">
                         <div class="space-y-2">
-                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 2</span>
+                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 2: Tìm kiếm và đánh giá thông tin học thuật</span>
                             <h3 class="text-2xl font-bold text-amber-950">Giải mã hiện tượng Diglossia qua lăng kính CRAAP</h3>
                         </div>
                         <div class="text-xs text-amber-800 bg-amber-800/5 px-4 py-2 rounded-full font-medium w-fit">
@@ -410,51 +460,57 @@
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-bullseye"></i> Mục tiêu bài học:</h4>
                                 <p class="text-amber-900 leading-relaxed">
-                                    Tìm hiểu sâu sắc về Diglossia (hiện tượng song ngữ nội tại) trong tiếng Ả Rập. Đồng thời rèn luyện kỹ thuật xây dựng câu lệnh logic kết hợp toán tử tìm kiếm chuyên nghiệp.
+                                    Thấu hiểu một cách có hệ thống về Diglossia (hiện tượng song ngữ nội tại) của tiếng Ả Rập. Đồng thời làm chủ kỹ năng tìm kiếm học thuật, sử dụng các toán tử Boolean chuyên sâu.
                                 </p>
                             </div>
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-lightbulb"></i> Bài học rút ra:</h4>
                                 <p class="text-amber-900 leading-relaxed">
-                                    Thế giới thông tin số vô cùng nhiễu loạn. Việc áp dụng mô hình CRAAP giúp người học có được bộ lọc hoài nghi khoa học, từ chối các thông tin giả, kém chất lượng để tạo nền tảng lý thuyết vững chắc cho các bài nghiên cứu.
+                                    Môi trường mạng học thuật ẩn chứa nhiều tài liệu rác hoặc chưa qua bình duyệt. Mô hình thẩm định CRAAP cung cấp thước đo định lượng khách quan giúp loại bỏ các nghiên cứu kém chất lượng.
                                 </p>
                             </div>
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
-                                <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-code"></i> Chuỗi câu lệnh đầy đủ đã sử dụng:</h4>
-                                <code class="block text-amber-800 bg-[#FDF5E6] p-2 rounded border border-amber-800/10 select-all">"Arabic Diglossia" AND "language acquisition" ("Modern Standard Arabic" OR "MSA") -translation site:edu filetype:pdf</code>
+                                <h4 class="font-bold text-amber-950 text-sm uppercase"><i class="fa-solid fa-code"></i> Hệ toán tử tìm kiếm đã dùng:</h4>
+                                <div class="space-y-1 text-[10px] text-amber-900 leading-relaxed">
+                                    <div><code>" " (Cụm từ chính xác)</code>: Ghép từ cụ thể loại bỏ kết quả lẻ.</div>
+                                    <div><code>AND</code>: Kết hợp các khía cạnh chủ đề lại với nhau.</div>
+                                    <div><code>OR</code>: Mở rộng tìm kiếm với các thuật ngữ đồng nghĩa.</div>
+                                    <div><code>site:</code>: Định vị nguồn tin cậy như edu, researchgate, v.v.</div>
+                                    <div><code>filetype:</code>: Lọc định dạng tài liệu học thuật (thường là PDF).</div>
+                                    <div><code>-</code>: Loại bỏ triệt để kết quả thương mại, quảng cáo dịch thuật.</div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Interactive Resource Matrix -->
                         <div class="lg:col-span-8 space-y-4">
-                            <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-table-list"></i> Bảng tổng hợp & Đánh giá 12 tài liệu học thuật (CRAAP):</h4>
-                            <div class="overflow-x-auto border border-amber-800/10 rounded-xl bg-white shadow-sm max-h-[400px]">
+                            <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-table-list"></i> Ma trận thẩm định 12 tài liệu (Nhấp dòng để xem chi tiết CRAAP):</h4>
+                            <div class="overflow-x-auto border border-amber-800/10 rounded-xl bg-white shadow-sm max-h-[350px]">
                                 <table class="w-full text-left text-xs border-collapse">
                                     <thead class="bg-amber-800/10 text-amber-950 sticky top-0">
                                         <tr>
-                                            <th class="p-3 font-semibold border-b border-amber-850/10">Tài liệu / Tác giả</th>
+                                            <th class="p-3 font-semibold border-b border-amber-850/10">Nguồn tài liệu</th>
                                             <th class="p-3 font-semibold border-b border-amber-850/10">Năm</th>
-                                            <th class="p-3 font-semibold border-b border-amber-850/10">Nhà XB / Nguồn</th>
-                                            <th class="p-3 font-semibold border-b border-amber-850/10">Độ phù hợp (CRAAP)</th>
+                                            <th class="p-3 font-semibold border-b border-amber-850/10">Nhà XB / Đơn vị</th>
+                                            <th class="p-3 font-semibold border-b border-amber-850/10">Điểm số</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="resource-table-body" class="divide-y divide-amber-800/5 text-amber-900">
-                                        <!-- Dynamic JS Rows go here -->
+                                    <tbody id="resource-table-body-full" class="divide-y divide-amber-800/5 text-amber-900">
+                                        <!-- Dynamic JS Rows generated automatically -->
                                     </tbody>
                                 </table>
                             </div>
-                            <p class="text-[10px] text-amber-700 italic text-right">*Nhấp chuột vào bất kỳ dòng nào để xem chi tiết đánh giá học thuật.</p>
                             
                             <!-- Dynamic Detail Drawer -->
-                            <div id="resource-detail-box" class="hidden p-4 rounded-xl border border-amber-700/20 bg-amber-50/50 space-y-2 text-xs">
-                                <h5 id="r-title" class="font-bold text-amber-950"></h5>
-                                <div class="grid grid-cols-2 gap-4 text-amber-900">
-                                    <div><strong>Độ mới (Currency):</strong> <span id="r-curr"></span></div>
-                                    <div><strong>Độ tin cậy (Authority):</strong> <span id="r-auth"></span></div>
-                                    <div><strong>Độ chính xác (Accuracy):</strong> <span id="r-acc"></span></div>
-                                    <div><strong>Mục đích (Purpose):</strong> <span id="r-purp"></span></div>
+                            <div id="resource-detail-box-full" class="p-4 rounded-xl border border-amber-700/20 bg-amber-50/50 space-y-2 text-xs transition-all duration-300">
+                                <h5 id="r-title-full" class="font-bold text-amber-950 text-sm"></h5>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-amber-900 py-2 border-b border-amber-900/10">
+                                    <div><strong>Độ mới (C):</strong> <span id="r-curr-full" class="block text-amber-800 font-medium"></span></div>
+                                    <div><strong>Độ tin cậy (A):</strong> <span id="r-auth-full" class="block text-amber-800 font-medium"></span></div>
+                                    <div><strong>Độ chính xác (A):</strong> <span id="r-acc-full" class="block text-amber-800 font-medium"></span></div>
+                                    <div><strong>Mục đích (P):</strong> <span id="r-purp-full" class="block text-amber-800 font-medium"></span></div>
                                 </div>
-                                <p id="r-relevance" class="text-amber-950 pt-2 border-t border-amber-900/10"></p>
+                                <p id="r-relevance-full" class="text-amber-950 pt-2 leading-relaxed"></p>
                             </div>
                         </div>
                     </div>
@@ -464,7 +520,7 @@
                 <div id="tab3-content" class="tab-pane hidden space-y-8">
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6">
                         <div class="space-y-2">
-                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 3</span>
+                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 3: Viết prompt hiệu quả cho các tác vụ học tập</span>
                             <h3 class="text-2xl font-bold text-amber-950">Prompt Lab - Làm chủ nghệ thuật giao tiếp với AI</h3>
                         </div>
                         <div class="text-xs text-amber-800 bg-amber-800/5 px-4 py-2 rounded-full font-medium w-fit">
@@ -477,44 +533,44 @@
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-bullseye"></i> Mục tiêu bài học:</h4>
                                 <p class="text-xs text-amber-900 leading-relaxed">
-                                    Tìm hiểu ranh giới hiệu năng giữa câu lệnh cơ bản, cải tiến và nâng cao để khai thác hiệu quả tối đa từ các mô hình ngôn ngữ lớn (LLM).
+                                    Thử nghiệm và đối sánh ba cấp độ thiết kế prompt (Cơ bản, Cải tiến, Nâng cao) thông qua 3 tác vụ học tập cụ thể, từ đó định hình tư duy điều khiển các mô hình ngôn ngữ lớn (LLM).
                                 </p>
                             </div>
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-lightbulb"></i> Bài học rút ra:</h4>
                                 <p class="text-xs text-amber-900 leading-relaxed">
-                                    AI không tự nhiên thông minh; chất lượng đầu ra phụ thuộc hoàn toàn vào tư duy thiết lập của con người. Prompt nâng cao kết hợp nhập vai (roleplaying), chỉ rõ mục tiêu và ví dụ thực tế sẽ cho kết quả vượt trội hơn hẳn.
+                                    AI chỉ hoạt động tốt khi được cung cấp đủ 4 yếu tố lõi: Vai trò nhập vai, Ngữ cảnh rõ ràng, Định dạng đầu ra mong muốn và các Quy tắc giới hạn cụ thể. Viết prompt là một hoạt động rèn luyện tư duy logic cao cấp.
                                 </p>
                             </div>
                         </div>
 
                         <!-- Interactive Prompt Playground -->
                         <div class="lg:col-span-8 space-y-4">
-                            <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-vial"></i> Mô phỏng thực nghiệm Prompt:</h4>
+                            <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-vial"></i> Không gian thực nghiệm Prompt:</h4>
                             
                             <!-- Task Selection -->
-                            <div class="flex gap-2">
-                                <button onclick="selectPromptTask(1)" id="p-task-1" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-800 text-white transition">Tác vụ 1: Tóm tắt văn bản</button>
-                                <button onclick="selectPromptTask(2)" id="p-task-2" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Tác vụ 2: Giải thích Học sâu</button>
-                                <button onclick="selectPromptTask(3)" id="p-task-3" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Tác vụ 3: Tạo bộ đề ôn tập</button>
+                            <div class="flex flex-wrap gap-2">
+                                <button onclick="selectPromptTaskFull(1)" id="p-task-1-full" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-800 text-white transition">Tác vụ 1: Tóm tắt văn bản học thuật</button>
+                                <button onclick="selectPromptTaskFull(2)" id="p-task-2-full" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Tác vụ 2: Giải thích khái niệm "Học sâu"</button>
+                                <button onclick="selectPromptTaskFull(3)" id="p-task-3-full" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Tác vụ 3: Tạo bộ đề ôn tập AI</button>
                             </div>
 
                             <!-- Level Selection -->
                             <div class="flex gap-2 bg-[#F5E6CC] p-1 rounded-xl">
-                                <button onclick="selectPromptLevel('basic')" id="p-lvl-basic" class="flex-1 py-1 text-xs font-semibold rounded-lg bg-amber-800 text-white transition">Cơ bản</button>
-                                <button onclick="selectPromptLevel('improved')" id="p-lvl-improved" class="flex-1 py-1 text-xs font-semibold rounded-lg text-amber-950 transition">Cải tiến</button>
-                                <button onclick="selectPromptLevel('advanced')" id="p-lvl-advanced" class="flex-1 py-1 text-xs font-semibold rounded-lg text-amber-950 transition">Nâng cao</button>
+                                <button onclick="selectPromptLevelFull('basic')" id="p-lvl-basic-full" class="flex-1 py-1 text-xs font-semibold rounded-lg bg-amber-800 text-white transition">Cấp độ 1: Cơ bản</button>
+                                <button onclick="selectPromptLevelFull('improved')" id="p-lvl-improved-full" class="flex-1 py-1 text-xs font-semibold rounded-lg text-amber-950 transition">Cấp độ 2: Cải tiến</button>
+                                <button onclick="selectPromptLevelFull('advanced')" id="p-lvl-advanced-full" class="flex-1 py-1 text-xs font-semibold rounded-lg text-amber-950 transition">Cấp độ 3: Nâng cao</button>
                             </div>
 
                             <!-- Code Block & Mock Output Terminal -->
                             <div class="bg-slate-900 rounded-2xl p-6 text-[#FDF5E6] font-mono text-xs space-y-4 border border-slate-700">
                                 <div class="space-y-1">
                                     <span class="text-slate-400 font-bold text-[10px] uppercase">CÂU LỆNH ĐÃ NHẬP (PROMPT):</span>
-                                    <p id="prompt-display-area" class="text-[#D4AC0D] italic text-sm leading-relaxed"></p>
+                                    <p id="prompt-display-area-full" class="text-[#D4AC0D] italic text-sm leading-relaxed"></p>
                                 </div>
                                 <div class="border-t border-slate-850 pt-4 space-y-1">
-                                    <span class="text-slate-400 font-bold text-[10px] uppercase">KẾT QUẢ ĐẦU RA CỦA AI (MOCK OUTPUT):</span>
-                                    <p id="prompt-output-area" class="text-slate-300 leading-relaxed text-sm whitespace-pre-line"></p>
+                                    <span class="text-slate-400 font-bold text-[10px] uppercase">KẾT QUẢ ĐẦU RA CỦA AI:</span>
+                                    <p id="prompt-output-area-full" class="text-slate-300 leading-relaxed text-sm whitespace-pre-line"></p>
                                 </div>
                             </div>
                         </div>
@@ -525,7 +581,7 @@
                 <div id="tab4-content" class="tab-pane hidden space-y-8">
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6">
                         <div class="space-y-2">
-                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 4</span>
+                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 4: Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</span>
                             <h3 class="text-2xl font-bold text-amber-950">Hệ sinh thái cộng tác & Quản lý dự án nhóm</h3>
                         </div>
                         <div class="text-xs text-amber-800 bg-amber-800/5 px-4 py-2 rounded-full font-medium w-fit">
@@ -570,19 +626,19 @@
                             
                             <!-- Platforms selection -->
                             <div class="flex gap-2">
-                                <button onclick="selectCollabTool('trello')" id="collab-trello" class="flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800 text-white transition">Trello</button>
-                                <button onclick="selectCollabTool('docs')" id="collab-docs" class="flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Google Docs</button>
-                                <button onclick="selectCollabTool('drive')" id="collab-drive" class="flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Google Drive</button>
-                                <button onclick="selectCollabTool('discord')" id="collab-discord" class="flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Discord</button>
+                                <button onclick="selectCollabToolFull('trello')" id="collab-trello-full" class="flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800 text-white transition">Trello</button>
+                                <button onclick="selectCollabToolFull('docs')" id="collab-docs-full" class="flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Google Docs</button>
+                                <button onclick="selectCollabToolFull('drive')" id="collab-drive-full" class="flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Google Drive</button>
+                                <button onclick="selectCollabToolFull('discord')" id="collab-discord-full" class="flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition">Discord</button>
                             </div>
 
                             <!-- Collab Visualizer Window -->
                             <div class="bg-slate-900 rounded-2xl p-6 text-[#FDF5E6] font-mono text-xs space-y-4 border border-slate-700 min-h-[300px] flex flex-col justify-between">
-                                <div id="collab-head" class="flex justify-between items-center border-b border-slate-700 pb-3">
-                                    <span class="text-[10px] text-slate-400" id="collab-plat-name">Trello Dashboard Simulation</span>
+                                <div id="collab-head-full" class="flex justify-between items-center border-b border-slate-700 pb-3">
+                                    <span class="text-[10px] text-slate-400" id="collab-plat-name-full">Trello Dashboard Simulation</span>
                                     <span class="px-2 py-0.5 rounded bg-amber-800 text-[9px]">Live Simulation</span>
                                 </div>
-                                <div id="collab-body" class="text-slate-300 leading-relaxed text-sm flex-1 pt-4">
+                                <div id="collab-body-full" class="text-slate-300 leading-relaxed text-sm flex-1 pt-4">
                                     <!-- Dynamic content based on selection -->
                                 </div>
                             </div>
@@ -590,15 +646,15 @@
                     </div>
                 </div>
 
-                <!-- TAB 5: CREATIVE AI -->
+                <!-- TAB 5: CREATIVE AI (TWICE AS DETAILED WITH GRAPHICAL WORKBENCH) -->
                 <div id="tab5-content" class="tab-pane hidden space-y-8">
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6">
                         <div class="space-y-2">
-                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 5</span>
-                            <h3 class="text-2xl font-bold text-amber-950">Giao thoa văn hóa - Sáng tạo nội dung số Oktoberfest</h3>
+                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 5: Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</span>
+                            <h3 class="text-2xl font-bold text-amber-950">Sáng tạo nội dung văn hóa Oktoberfest với chuỗi Generative AI</h3>
                         </div>
                         <div class="text-xs text-amber-800 bg-amber-800/5 px-4 py-2 rounded-full font-medium w-fit">
-                            Kỹ năng: Kết hợp chuỗi công cụ Generative AI (Văn bản, Hình ảnh & Đồ họa)
+                            Kỹ năng: Phối hợp quy trình đa mô hình (Gemini, Banana Pro 2, Canva AI)
                         </div>
                     </div>
 
@@ -607,46 +663,35 @@
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-bullseye"></i> Mục tiêu bài học:</h4>
                                 <p class="text-amber-900 leading-relaxed">
-                                    Thiết kế Infographic hoàn chỉnh giới thiệu lễ hội Oktoberfest của Đức. Tự học và điều phối luồng làm việc tích hợp giữa nhiều công cụ AI tạo sinh khác biệt.
+                                    Xây dựng một sản phẩm truyền thông số đồ họa chuyên nghiệp về lễ hội Oktoberfest vùng Bavaria (Đức). Rèn luyện khả năng tích hợp, đối sánh và chuyển dịch nguồn học liệu số giữa nhiều hệ sinh thái trí tuệ nhân tạo.
                                 </p>
                             </div>
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-lightbulb"></i> Bài học rút ra:</h4>
                                 <p class="text-amber-900 leading-relaxed">
-                                    Áp dụng quy tắc 40/60 nghiêm ngặt (AI tạo khung sườn &lt; 40%, tư duy thiết kế, kiểm chứng chéo và nội địa hóa ngôn ngữ của con người &gt; 60%) để đảm bảo tính độc đáo và chiều sâu của sản phẩm.
+                                    Nguyên tắc hợp tác vàng 40/60 khẳng định vai trò cốt lõi của con người. AI có thể giúp giảm thiểu 70% thời gian tìm kiếm và dựng khung kỹ thuật, nhưng chính óc thẩm mỹ, khả năng kiểm chứng học thuật và nội địa hóa ngôn ngữ mới tạo nên tính nguyên bản cho tác phẩm.
                                 </p>
                             </div>
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
-                                <h4 class="font-bold text-amber-950 text-sm uppercase"><i class="fa-solid fa-code"></i> Hệ câu lệnh phối hợp:</h4>
-                                <div class="space-y-2">
-                                    <div>
-                                        <strong>1. Gemini (Văn bản):</strong> 
-                                        <span class="block text-[#A04000] italic font-light">“Bạn là chuyên gia văn hóa Đức. Hãy xây dựng nội dung ngắn gọn cho một Infographic giới thiệu về lễ hội Oktoberfest...”</span>
-                                    </div>
-                                    <div>
-                                        <strong>2. Banana Pro 2 (Hình ảnh):</strong> 
-                                        <span class="block text-[#A04000] italic font-light">“An isometric infographic element showing a traditional German pretzel and a glass of Bavarian beverage, vector art, clean white background, 3D render style...”</span>
-                                    </div>
-                                    <div>
-                                        <strong>3. Canva AI (Bố cục):</strong> 
-                                        <span class="block text-[#A04000] italic font-light">“Create an educational infographic template about German culture festival, dark blue and gold theme...”</span>
-                                    </div>
-                                </div>
+                                <h4 class="font-bold text-amber-950 text-sm uppercase"><i class="fa-solid fa-scale-unbalanced"></i> Phân tích chi tiết quy trình:</h4>
+                                <p class="text-amber-900 leading-relaxed font-light">
+                                    Trong kỷ nguyên sáng tạo số, người học chuyển dịch vai trò từ người thực thi thô (drafter) sang người định hướng và giám sát (prompting & moderating). Việc sử dụng các hình ảnh đồ họa isometric độc quyền từ Banana Pro giúp sản phẩm hoàn toàn không vi phạm bản quyền trực tuyến, mở ra hướng đi mới cho truyền thông học thuật.
+                                </p>
                             </div>
                         </div>
 
-                        <!-- Interactive Layer Viewport -->
+                        <!-- Interactive Layers Workspace -->
                         <div class="lg:col-span-7 space-y-4">
-                            <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-layer-group"></i> Trực quan hóa quy trình phối hợp (Quy tắc 40/60):</h4>
-                            <div class="relative bg-amber-800/5 border border-amber-800/10 rounded-2xl p-6 flex flex-col justify-between min-h-[350px]">
-                                <div class="flex gap-2 mb-4">
-                                    <button onclick="selectOktoberfestLayer(1)" id="okt-layer-1" class="flex-1 py-1 text-xs font-semibold rounded bg-amber-800 text-white transition">GĐ 1: Gemini</button>
-                                    <button onclick="selectOktoberfestLayer(2)" id="okt-layer-2" class="flex-1 py-1 text-xs font-semibold rounded bg-amber-800/10 text-amber-950 transition">GĐ 2: Banana Pro</button>
-                                    <button onclick="selectOktoberfestLayer(3)" id="okt-layer-3" class="flex-1 py-1 text-xs font-semibold rounded bg-amber-800/10 text-amber-950 transition">GĐ 3: Canva AI</button>
-                                    <button onclick="selectOktoberfestLayer(4)" id="okt-layer-4" class="flex-1 py-1 text-xs font-semibold rounded bg-amber-800/10 text-amber-950 transition">GĐ 4: Biên tập viên</button>
+                            <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-layer-group"></i> Không gian làm việc thiết kế tích hợp (Bốn giai đoạn chi tiết):</h4>
+                            <div class="relative bg-amber-800/5 border border-amber-800/10 rounded-2xl p-6 flex flex-col justify-between min-h-[400px]">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <button onclick="selectOktoberfestLayerFull(1)" id="okt-layer-1-full" class="flex-1 py-1.5 text-xs font-semibold rounded bg-amber-800 text-white transition">Giai đoạn 1: Gemini (Văn bản)</button>
+                                    <button onclick="selectOktoberfestLayerFull(2)" id="okt-layer-2-full" class="flex-1 py-1.5 text-xs font-semibold rounded bg-amber-800/10 text-amber-950 transition">Giai đoạn 2: Banana Pro (Hình ảnh)</button>
+                                    <button onclick="selectOktoberfestLayerFull(3)" id="okt-layer-3-full" class="flex-1 py-1.5 text-xs font-semibold rounded bg-amber-800/10 text-amber-950 transition">Giai đoạn 3: Canva AI (Bố cục)</button>
+                                    <button onclick="selectOktoberfestLayerFull(4)" id="okt-layer-4-full" class="flex-1 py-1.5 text-xs font-semibold rounded bg-amber-800/10 text-amber-950 transition">Giai đoạn 4: Biên tập viên (Tỷ lệ 40/60)</button>
                                 </div>
-                                <div id="okt-description-box" class="text-xs text-amber-900 leading-relaxed bg-white p-4 rounded-xl shadow-sm flex-1 flex flex-col justify-center">
-                                    <!-- Dynamic explanation here -->
+                                <div id="okt-description-box-full" class="text-xs text-amber-900 leading-relaxed bg-white p-6 rounded-xl shadow-sm flex-1 flex flex-col justify-center">
+                                    <!-- Dynamic text values go here -->
                                 </div>
                             </div>
                         </div>
@@ -657,7 +702,7 @@
                 <div id="tab6-content" class="tab-pane hidden space-y-8">
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6">
                         <div class="space-y-2">
-                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 6</span>
+                            <span class="text-xs text-[#A04000] font-bold uppercase tracking-widest">Bài thực hành 6: Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</span>
                             <h3 class="text-2xl font-bold text-amber-950">Liêm chính học thuật trong không gian làm việc số</h3>
                         </div>
                         <div class="text-xs text-amber-800 bg-amber-800/5 px-4 py-2 rounded-full font-medium w-fit">
@@ -676,7 +721,7 @@
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-lightbulb"></i> Bài học rút ra:</h4>
                                 <p class="text-xs text-amber-900 leading-relaxed">
-                                    Trí tuệ nhân tạo là một công cụ hỗ trợ tuyệt vời để kích thích tư duy, tuyệt đối không được sử dụng để thay thế tư duy. Bản lĩnh liêm chính học tập là nền móng của một nhà khoa học chân chính.
+                                    Trí tuệ nhân tạo là một trợ lý tuyệt vời nhưng cũng là một cái bẫy nếu người học lạm dụng nó để sao chép thụ động. Bản lĩnh liêm chính học tập là nền móng của một nhà khoa học chân chính.
                                 </p>
                             </div>
                         </div>
@@ -685,14 +730,14 @@
                         <div class="lg:col-span-7 space-y-4">
                             <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-shield-halved"></i> 6 Nguyên tắc sử dụng AI có trách nhiệm (Nhấp để xem chi tiết):</h4>
                             <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                                <button onclick="selectPrinciple(1)" id="pr-btn-1" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">1. Ý tưởng tiên quyết</button>
-                                <button onclick="selectPrinciple(2)" id="pr-btn-2" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">2. Bộ lọc hoài nghi</button>
-                                <button onclick="selectPrinciple(3)" id="pr-btn-3" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">3. Minh bạch nguồn</button>
-                                <button onclick="selectPrinciple(4)" id="pr-btn-4" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">4. Chủ thể sáng tạo</button>
-                                <button onclick="selectPrinciple(5)" id="pr-btn-5" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">5. Bảo mật dữ liệu</button>
-                                <button onclick="selectPrinciple(6)" id="pr-btn-6" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">6. Phát triển năng lực</button>
+                                <button onclick="selectPrincipleFull(1)" id="pr-btn-1-full" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">1. Ý tưởng tiên quyết</button>
+                                <button onclick="selectPrincipleFull(2)" id="pr-btn-2-full" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">2. Bộ lọc hoài nghi</button>
+                                <button onclick="selectPrincipleFull(3)" id="pr-btn-3-full" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">3. Minh bạch nguồn</button>
+                                <button onclick="selectPrincipleFull(4)" id="pr-btn-4-full" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">4. Chủ thể sáng tạo</button>
+                                <button onclick="selectPrincipleFull(5)" id="pr-btn-5-full" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">5. Bảo mật dữ liệu</button>
+                                <button onclick="selectPrincipleFull(6)" id="pr-btn-6-full" class="p-3 bg-white hover:bg-amber-800 hover:text-white rounded-xl border border-amber-800/20 text-xs font-semibold text-amber-950 transition text-center shadow-sm">6. Phát triển năng lực</button>
                             </div>
-                            <div id="principle-desc-box" class="p-4 rounded-xl border border-amber-800/15 bg-amber-50/50 text-xs text-amber-900 leading-relaxed min-h-[100px] flex items-center justify-center">
+                            <div id="principle-desc-box-full" class="p-4 rounded-xl border border-amber-800/15 bg-amber-50/50 text-xs text-amber-900 leading-relaxed min-h-[100px] flex items-center justify-center">
                                 Hãy nhấp vào một trong các nguyên tắc bên trên để xem báo cáo nội dung thực tế mà mình áp dụng hàng ngày.
                             </div>
                         </div>
@@ -808,62 +853,197 @@
             }
         }
 
-        // BÀI 1: 12 STEPS SIMULATOR DATA
-        const stepsData = {
-            1: "Bước 1 - Mở File Explorer: Nhấp vào biểu tượng thư mục màu vàng trên thanh tác vụ (Taskbar) hoặc nhấn tổ hợp phím Windows + E để khởi tạo cửa sổ quản lý hệ thống tệp tin.",
-            2: "Bước 2 - Truy cập thư mục/ổ đĩa: Ở khung điều hướng bên trái, nhấp vào 'This PC', sau đó nhấp đúp vào một ổ đĩa không phải ổ hệ thống (ví dụ: ổ D: hoặc E:). Nếu máy của bạn chỉ có duy nhất ổ C:, hãy truy cập trực tiếp vào thư mục 'Documents'.",
-            3: "Bước 3 - Tạo thư mục gốc mới: Nhấp chuột phải vào một khoảng trống trong thư mục đang mở, chọn 'New' -> chọn 'Folder'. Đặt tên thư mục thống nhất của bạn là 'ThucHanh_CaoDucPhat'. Nhấn Enter để lưu cấu trúc.",
-            4: "Bước 4 - Truy cập thư mục vừa tạo: Nhấp đúp chuột vào thư mục 'ThucHanh_CaoDucPhat' bạn vừa khởi tạo để đi sâu vào nhánh thư mục nội bộ.",
-            5: "Bước 5 - Tạo tệp tin văn bản: Nhấp chuột phải vào một khoảng trống bất kỳ trong thư mục, chọn 'New' -> chọn 'Text Document'. Đặt tên tệp tin thô này là 'GhiChu.txt'. Nhấn Enter để xác nhận.",
-            6: "Bước 6 - Đổi tên tệp tin: Nhấp chuột phải vào tệp 'GhiChu.txt' vừa tạo -> chọn biểu tượng 'Rename' (hoặc nhấn phím tắt F2). Thực hiện đổi tên tệp thành 'GhiChuQuanTrong.txt'. Nhấn Enter để xác nhận.",
-            7: "Bước 7 - Tạo thư mục con: Trong không gian thư mục 'ThucHanh_CaoDucPhat', nhấp chuột phải một lần nữa -> chọn 'New' -> chọn 'Folder'. Đặt tên thư mục con này là 'TaiLieu'. Nhấn Enter.",
-            8: "Bước 8 - Sao chép tệp tin (Copy & Paste): Nhấp chuột phải vào tệp 'GhiChuQuanTrong.txt' -> chọn lệnh 'Copy' (hoặc chọn tệp rồi nhấn Ctrl + C). Tiếp theo, nhấp đúp để vào thư mục con 'TaiLieu', nhấp chuột phải vào một khoảng trống -> chọn lệnh 'Paste' (hoặc nhấn Ctrl + V) để nhân bản tệp tin.",
-            9: "Bước 9 - Di chuyển tệp tin (Cut & Paste): Quay trở lại thư mục chính 'ThucHanh_CaoDucPhat'. Nhấp chuột phải -> chọn 'New' -> chọn 'Text Document'. Đặt tên tệp tin là 'DiChuyen.txt'. Nhấn chuột phải vào tệp này -> chọn lệnh 'Cut' (hoặc nhấn Ctrl + X). Vào thư mục 'TaiLieu', nhấp chuột phải vào khoảng trống -> chọn lệnh 'Paste' (hoặc nhấn Ctrl + V). Bạn sẽ thấy tệp biến mất ở vị trí cũ và chỉ còn ở vị trí mới.",
-            10: "Bước 10 - Xóa tệp tin: Đi vào thư mục con 'TaiLieu', nhấp chuột phải vào tệp tin 'GhiChuQuanTrong.txt' -> chọn lệnh 'Delete' (hoặc nhấn phím Delete trên bàn phím). Tệp tin sẽ ngay lập tức được hệ thống chuyển vào Thùng rác (Recycle Bin) để có thể khôi phục khi cần thiết.",
-            11: "Bước 11 - Xóa vĩnh viễn tệp tin: Vẫn trong thư mục con 'TaiLieu', chọn tệp 'DiChuyen.txt'. Nhấn giữ đồng thời tổ hợp phím Shift + Delete. Hệ thống sẽ hiển thị một bảng cảnh báo xác nhận xóa vĩnh viễn không đi qua Thùng rác. Chọn 'Yes' để dọn dẹp triệt để dữ liệu.",
-            12: "Bước 12 - Khôi phục tệp từ Thùng rác: Tìm biểu tượng 'Recycle Bin' trên màn hình nền (Desktop), nhấp đúp để mở cửa sổ. Tìm tệp tin 'GhiChuQuanTrong.txt' mà bạn đã xóa ở Bước 10, nhấp chuột phải vào tệp -> chọn 'Restore'. Hệ thống sẽ tự động đưa tệp quay trở lại vị trí ban đầu trong thư mục con 'TaiLieu'."
+        // BÀI 1: 12 STEPS SIMULATOR DATA WITH DYNAMIC DIRECTORY TREE UPDATER
+        const stepsDataFull = {
+            1: {
+                desc: "Bước 1 - Mở File Explorer: Nhấp vào biểu tượng thư mục màu vàng trên thanh tác vụ (Taskbar) hoặc nhấn tổ hợp phím Windows + E để khởi tạo cửa sổ quản lý hệ thống tệp tin.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                }
+            },
+            2: {
+                desc: "Bước 2 - Truy cập thư mục/ổ đĩa: Ở khung điều hướng bên trái, nhấp vào 'This PC', sau đó nhấp đúp vào ổ đĩa mong muốn (ổ D: hoặc E:). Nếu chỉ có ổ C: thì truy cập trực tiếp vào thư mục mặc định 'Documents'.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                }
+            },
+            3: {
+                desc: "Bước 3 - Tạo thư mục gốc mới: Nhấp chuột phải vào một khoảng trống bất kỳ trong thư mục, chọn 'New' -> 'Folder'. Đặt tên thư mục chính xác là 'ThucHanh_CaoDucPhat'. Nhấn Enter để lưu cấu trúc.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đã khởi tạo thư mục gốc');
+                }
+            },
+            4: {
+                desc: "Bước 4 - Truy cập thư mục gốc vừa tạo: Nhấp đúp chuột vào thư mục 'ThucHanh_CaoDucPhat' vừa mới tạo lập để mở rộng không gian lưu trữ nội bộ.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                }
+            },
+            5: {
+                desc: "Bước 5 - Tạo tệp tin văn bản: Nhấp chuột phải vào một khoảng trống bất kỳ trong thư mục chính, chọn 'New' -> chọn 'Text Document'. Thiết lập tên mặc định ban đầu là 'GhiChu.txt'. Nhấn Enter.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                    highlightTreeNode('tree-file-1', 'Khởi tạo: GhiChu.txt');
+                }
+            },
+            6: {
+                desc: "Bước 6 - Đổi tên tệp tin: Nhấp chuột phải vào tệp 'GhiChu.txt' mới tạo -> chọn biểu tượng 'Rename' (hoặc nhấn phím tắt F2). Tiến hành đổi tên thành 'GhiChuQuanTrong.txt'. Nhấn Enter để xác nhận.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                    highlightTreeNode('tree-file-1', 'Đổi tên thành: GhiChuQuanTrong.txt');
+                }
+            },
+            7: {
+                desc: "Bước 7 - Tạo thư mục con: Trong không gian thư mục 'ThucHanh_CaoDucPhat', nhấp chuột phải một lần nữa -> chọn 'New' -> chọn 'Folder'. Đặt tên thư mục con này là 'TaiLieu'. Nhấn Enter.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                    highlightTreeNode('tree-sub-folder', 'Khởi tạo thư mục con: TaiLieu');
+                }
+            },
+            8: {
+                desc: "Bước 8 - Sao chép tệp tin (Copy & Paste): Nhấp chuột phải vào tệp 'GhiChuQuanTrong.txt' -> chọn 'Copy' (hoặc nhấn Ctrl + C). Tiếp theo, nhấp đúp vào thư mục con 'TaiLieu', nhấp chuột phải -> chọn 'Paste' (hoặc nhấn Ctrl + V) để tạo tệp sao chép bên trong.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                    highlightTreeNode('tree-sub-folder', 'Đang mở');
+                    highlightTreeNode('tree-file-1', 'Đã sao chép vào thư mục con');
+                }
+            },
+            9: {
+                desc: "Bước 9 - Di chuyển tệp tin (Cut & Paste): Quay trở lại thư mục chính 'ThucHanh_CaoDucPhat'. Nhấp chuột phải -> chọn 'New' -> chọn 'Text Document'. Đặt tên tệp tin là 'DiChuyen.txt'. Nhấp chuột phải vào tệp -> chọn 'Cut' (hoặc nhấn Ctrl + X). Vào thư mục 'TaiLieu', nhấp chuột phải -> chọn 'Paste' (hoặc nhấn Ctrl + V). Bạn sẽ thấy tệp gốc biến mất ở vị trí cũ và xuất hiện ở vị trí mới.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                    highlightTreeNode('tree-sub-folder', 'Đang mở');
+                    highlightTreeNode('tree-file-2', 'Đã di chuyển vào thư mục con');
+                }
+            },
+            10: {
+                desc: "Bước 10 - Xóa tệp tin thường: Đi vào thư mục con 'TaiLieu', nhấp chuột phải vào tệp tin 'GhiChuQuanTrong.txt' -> chọn lệnh 'Delete' (hoặc nhấn phím Delete trên bàn phím). Tệp tin sẽ ngay lập tức được hệ thống chuyển vào Thùng rác (Recycle Bin) để có thể khôi phục khi cần thiết.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                    highlightTreeNode('tree-sub-folder', 'Đang mở');
+                    highlightTreeNode('tree-file-1', 'Đã di chuyển tới Thùng Rác (Recycle Bin)');
+                }
+            },
+            11: {
+                desc: "Bước 11 - Xóa vĩnh viễn tệp tin: Vẫn trong thư mục con 'TaiLieu', chọn tệp 'DiChuyen.txt'. Nhấn giữ đồng thời tổ hợp phím Shift + Delete. Hệ thống hiển thị bảng cảnh báo xác nhận xóa vĩnh viễn không đi qua Thùng rác. Chọn 'Yes' để dọn dẹp triệt để dữ liệu.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                    highlightTreeNode('tree-sub-folder', 'Đang mở');
+                    highlightTreeNode('tree-file-2', 'Đã xóa vĩnh viễn khỏi thiết bị');
+                }
+            },
+            12: {
+                desc: "Bước 12 - Khôi phục tệp từ Thùng rác: Tìm biểu tượng 'Recycle Bin' trên màn hình nền (Desktop), nhấp đúp để mở cửa sổ. Tìm tệp tin 'GhiChuQuanTrong.txt' mà bạn đã xóa ở Bước 10, nhấp chuột phải vào tệp -> chọn 'Restore'. Hệ thống tự động khôi phục tệp quay trở lại vị trí ban đầu trong thư mục con 'TaiLieu'.",
+                updateTree: () => {
+                    resetTreeHighlights();
+                    highlightTreeNode('tree-root-folder', 'Đang mở');
+                    highlightTreeNode('tree-sub-folder', 'Đang mở');
+                    highlightTreeNode('tree-file-1', 'Đã khôi phục về trạng thái cũ');
+                }
+            }
         };
 
-        function playStep(num) {
-            document.getElementById('step-desc-area').innerText = stepsData[num];
-            const buttons = document.querySelectorAll('.step-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-amber-750', 'border', 'border-amber-500');
-                if (btn.innerText == num) {
-                    btn.classList.add('bg-amber-750', 'border', 'border-amber-500');
-                }
+        let currentActiveStep = 1;
+
+        function resetTreeHighlights() {
+            const ids = ['tree-root-folder', 'tree-sub-folder', 'tree-file-1', 'tree-file-2'];
+            ids.forEach(id => {
+                const el = document.getElementById(id);
+                el.classList.remove('bg-amber-800/10', 'text-amber-400');
             });
+            document.getElementById('tree-indicator-root').innerText = '';
+            document.getElementById('tree-indicator-sub').innerText = '';
+            document.getElementById('tree-indicator-f1').innerText = '';
+            document.getElementById('tree-indicator-f2').innerText = '';
         }
 
-        // BÀI 2: 12 RESOURCES DATA (CRAAP SUMMARY)
-        const resources = [
+        function highlightTreeNode(nodeId, text) {
+            const el = document.getElementById(nodeId);
+            el.classList.add('bg-amber-800/10', 'text-amber-400');
+            
+            let indId = 'tree-indicator-root';
+            if (nodeId === 'tree-sub-folder') indId = 'tree-indicator-sub';
+            if (nodeId === 'tree-file-1') indId = 'tree-indicator-f1';
+            if (nodeId === 'tree-file-2') indId = 'tree-indicator-f2';
+
+            document.getElementById(indId).innerText = ` (${text})`;
+        }
+
+        function playStepFull(num) {
+            currentActiveStep = num;
+            document.getElementById('step-counter').innerText = `Bước ${num}/12`;
+            document.getElementById('step-desc-area').innerText = stepsDataFull[num].desc;
+            stepsDataFull[num].updateTree();
+
+            // Highlight button
+            for (let i = 1; i <= 12; i++) {
+                const btn = document.getElementById('step-dot-' + i);
+                if (i === num) {
+                    btn.className = "py-2 bg-amber-850 text-white rounded font-bold border border-amber-500 transition";
+                } else {
+                    btn.className = "py-2 bg-slate-800 text-slate-300 rounded font-bold hover:bg-amber-800 transition";
+                }
+            }
+        }
+
+        function nextStep() {
+            let next = currentActiveStep + 1;
+            if (next > 12) next = 1;
+            playStepFull(next);
+        }
+
+        function prevStep() {
+            let prev = currentActiveStep - 1;
+            if (prev < 1) prev = 12;
+            playStepFull(prev);
+        }
+
+        function selectSpecificStep(num) {
+            playStepFull(num);
+        }
+
+
+        // BÀI 2: 12 RESOURCES DATA (CRAAP SUMMARY - NO CITATIONS)
+        const resourcesFull = [
             {
                 id: 1,
-                title: "1. Diglossia and Orthographic Complexity as Multiplicative but not Additive Challenges in Arabic: A Critical Review",
+                title: "Diglossia and Orthographic Complexity as Multiplicative but not Additive Challenges in Arabic: A Critical Review",
                 year: "2026",
                 source: "Journal of Psycholinguistic Research (Springer)",
+                score: "9.5/10",
                 curr: "Rất cập nhật (Xuất bản năm 2026)",
-                auth: "Tạp chí Springer uy tín hàng đầu có bình duyệt chuyên môn nghiêm ngặt.",
-                acc: "Sử dụng tổng quan hệ thống (Systematic Review) theo chuẩn PRISMA.",
-                purp: "Cung cấp nghiên cứu lý thuyết chuyên sâu.",
-                relevance: "Phân tích trực tiếp tác động của diglossia kết hợp với độ phức tạp của chữ viết (orthographic complexity) đến quá trình tiếp thu từ vựng và nhận thức ngữ âm của người học."
+                auth: "Tạp chí Springer uy tín hàng đầu có hệ thống bình duyệt chuyên môn nghiêm ngặt.",
+                acc: "Sử dụng mô hình tổng quan hệ thống theo chuẩn PRISMA.",
+                purp: "Cung cấp phân tích lý thuyết học thuật chuyên sâu.",
+                relevance: "Nghiên cứu trực tiếp chỉ ra mức độ tương tác giữa diglossia và độ phức tạp của chữ viết (orthographic complexity) đến sự phát triển nhận thức ngữ âm của người học."
             },
             {
                 id: 2,
-                title: "2. Lexical Knowledge in Arabic Diglossia among Kindergarten Children",
+                title: "Lexical Knowledge in Arabic Diglossia among Kindergarten Children: The Role of Linguistic Distance, Modality, Grammatical Class, and the Spoken Variety",
                 year: "2026",
                 source: "Journal of Child Language (Cambridge University Press)",
+                score: "9.5/10",
                 curr: "Rất cập nhật (Xuất bản năm 2026)",
-                auth: "Nhà xuất bản đại học Cambridge có chỉ số học thuật và độ uy tín rất cao.",
+                auth: "Nhà xuất bản đại học Cambridge có độ uy tín học thuật cao nhất.",
                 acc: "Nghiên cứu thực nghiệm lâm sàng trên mẫu đối tượng trẻ em mẫu giáo.",
                 purp: "Làm rõ vai trò của khoảng cách ngôn ngữ (linguistic distance) trong tiếp thụ từ vựng.",
                 relevance: "Nghiên cứu chỉ ra mối liên hệ định lượng giữa việc trẻ làm quen với tiếng Ả Rập chuẩn (MSA) và phương ngữ nói (SpA). Rất có ích để tham chiếu xây dựng học liệu dạy học."
             },
             {
                 id: 3,
-                title: "3. Arabic diglossia: advocating for a non-deficit model in comparative analysis of reading and language acquisition",
+                title: "Arabic diglossia: advocating for a non-deficit model in comparative analysis of reading and language acquisition",
                 year: "2025",
                 source: "Frontiers in Education",
+                score: "9.0/10",
                 curr: "Cập nhật (Xuất bản năm 2025)",
                 auth: "Nền tảng Frontiers danh tiếng thế giới, có truy cập mở bình duyệt chéo.",
                 acc: "Cung cấp phân tích đối sánh đa quốc gia và tổng hợp dữ liệu toàn diện.",
@@ -872,9 +1052,10 @@
             },
             {
                 id: 4,
-                title: "4. Phenomenon of Arabic Diglossia: A Linguistic Review and its Implications for Foreign Language Teaching",
+                title: "Phenomenon of Arabic Diglossia: A Linguistic Review and its Implications for Foreign Language Teaching",
                 year: "2025",
                 source: "Eloquence Journal",
+                score: "8.5/10",
                 curr: "Cập nhật (Xuất bản năm 2025)",
                 auth: "Tạp chí ngôn ngữ học khu vực Trung Đông uy tín.",
                 acc: "Tổng quan tài liệu phân tích sâu sắc các chiến lược thực tế.",
@@ -883,9 +1064,10 @@
             },
             {
                 id: 5,
-                title: "5. Language variation on Arabic undergraduate degree courses in England: students' perspectives",
+                title: "Language variation on Arabic undergraduate degree courses in England: students' perspectives",
                 year: "2024",
                 source: "The Language Learning Journal (Taylor & Francis)",
+                score: "9.0/10",
                 curr: "Cập nhật (Xuất bản năm 2024)",
                 auth: "Nhà xuất bản Taylor & Francis danh tiếng của Anh Quốc.",
                 acc: "Sử dụng khảo sát hỗn hợp (Mixed-methods) trên 122 sinh viên chuyên ngành.",
@@ -894,9 +1076,10 @@
             },
             {
                 id: 6,
-                title: "6. Sociolinguistic awareness in L2 Arabic: A study of learners' code use repertoires",
+                title: "Sociolinguistic awareness in L2 Arabic: A study of learners' code use repertoires",
                 year: "2023",
                 source: "Foreign Language Annals",
+                score: "8.5/10",
                 curr: "Cập nhật (Xuất bản năm 2023)",
                 auth: "Tạp chí chuyên ngành hàng đầu về giảng dạy ngoại ngữ.",
                 acc: "Thử nghiệm hành vi sử dụng code thực tế của học viên.",
@@ -905,9 +1088,10 @@
             },
             {
                 id: 7,
-                title: "7. A systematic review of teaching and learning in the context of Arabic diglossia",
+                title: "A systematic review of teaching and learning in the context of Arabic diglossia",
                 year: "2025",
                 source: "Social Sciences and Humanities Open (Elsevier)",
+                score: "9.5/10",
                 curr: "Cập nhật (Xuất bản năm 2025)",
                 auth: "Elsevier - một trong những cơ sở dữ liệu khoa học lớn nhất thế giới.",
                 acc: "Phân tích hệ thống tổng hợp từ 101 nghiên cứu khoa học chất lượng cao.",
@@ -916,9 +1100,10 @@
             },
             {
                 id: 8,
-                title: "8. The Impact of Diglossia on Executive Functions and on Reading in Arabic",
+                title: "The Impact of Diglossia on Executive Functions and on Reading in Arabic",
                 year: "2024",
                 source: "Brain Sciences (MDPI)",
+                score: "8.5/10",
                 curr: "Cập nhật (Xuất bản năm 2024)",
                 auth: "Tạp chí MDPI chuyên sâu về khoa học thần kinh và nhận thức.",
                 acc: "Tổng hợp các nghiên cứu lâm sàng sử dụng máy quét cộng hưởng từ chức năng.",
@@ -927,9 +1112,10 @@
             },
             {
                 id: 9,
-                title: "9. The Study of Arabic Language Acquisition",
+                title: "The Study of Arabic Language Acquisition",
                 year: "2021",
                 source: "The Cambridge Handbook of Arabic Linguistics",
+                score: "9.5/10",
                 curr: "Khá cập nhật (Xuất bản năm 2021)",
                 auth: "Sách chuyên khảo thuộc hệ thống thư mục cẩm nang chuẩn của Cambridge.",
                 acc: "Biên soạn bởi các giáo sư đầu ngành ngôn ngữ học Ả Rập.",
@@ -938,9 +1124,10 @@
             },
             {
                 id: 10,
-                title: "10. Sociolinguistic Research vs. Language Ideology in L2 Arabic",
+                title: "Sociolinguistic Research vs. Language Ideology in L2 Arabic",
                 year: "2022",
                 source: "The Routledge Handbook of Arabic and Identity",
+                score: "9.0/10",
                 curr: "Khá cập nhật (Xuất bản năm 2022)",
                 auth: "Nhà xuất bản Routledge (Taylor & Francis) danh tiếng.",
                 acc: "Được tổng hợp từ các công trình nghiên cứu bản sắc và xã hội lâu năm.",
@@ -949,9 +1136,10 @@
             },
             {
                 id: 11,
-                title: "11. Arabic diglossia and its impact on language learning",
+                title: "Arabic diglossia and its impact on language learning",
                 year: "2022",
                 source: "Working Paper - Academia.edu",
+                score: "7.5/10",
                 curr: "Khá cập nhật (Đăng tải năm 2022)",
                 auth: "Bài viết chia sẻ học thuật cá nhân của nghiên cứu sinh.",
                 acc: "Nghiên cứu khảo sát định lượng sơ khởi, chưa qua bình duyệt tạp chí chính thức.",
@@ -960,9 +1148,10 @@
             },
             {
                 id: 12,
-                title: "12. Lexical Competition between Spoken and Literary Arabic: A New Look into the Neural Basis of Diglossia Using fMRI",
+                title: "Lexical Competition between Spoken and Literary Arabic: A New Look into the Neural Basis of Diglossia Using fMRI",
                 year: "2018",
                 source: "ScienceDirect",
+                score: "8.0/10",
                 curr: "Có phần cũ (Xuất bản năm 2018, trên 5 năm)",
                 auth: "Cơ sở dữ liệu ScienceDirect có độ uy tín học thuật cao.",
                 acc: "Sử dụng phương pháp quét não fMRI phức tạp có bình duyệt khoa học.",
@@ -971,39 +1160,40 @@
             }
         ];
 
-        function buildResourceTable() {
-            const tbody = document.getElementById('resource-table-body');
+        function buildResourceTableFull() {
+            const tbody = document.getElementById('resource-table-body-full');
             tbody.innerHTML = '';
-            resources.forEach(r => {
+            resourcesFull.forEach(r => {
                 const tr = document.createElement('tr');
                 tr.className = 'hover:bg-amber-800/5 cursor-pointer transition';
-                tr.onclick = () => showResourceDetail(r.id);
+                tr.onclick = () => showResourceDetailFull(r.id);
                 tr.innerHTML = `
-                    <td class="p-3 font-medium border-b border-amber-800/5">${r.title}</td>
+                    <td class="p-3 font-medium border-b border-amber-800/5">${r.title.substring(0, 50)}...</td>
                     <td class="p-3 border-b border-amber-800/5">${r.year}</td>
-                    <td class="p-3 border-b border-amber-800/5">${r.source}</td>
-                    <td class="p-3 border-b border-amber-800/5 font-bold text-amber-800">${r.id <= 3 || r.id === 7 ? '9.5/10' : r.id === 5 || r.id === 10 ? '9.0/10' : '8.0/10'}</td>
+                    <td class="p-3 border-b border-amber-800/5 text-amber-900">${r.source.substring(0, 25)}...</td>
+                    <td class="p-3 border-b border-amber-800/5 font-bold text-amber-800 text-center">${r.score}</td>
                 `;
                 tbody.appendChild(tr);
             });
         }
 
-        function showResourceDetail(id) {
-            const r = resources.find(item => item.id === id);
+        function showResourceDetailFull(id) {
+            const r = resourcesFull.find(item => item.id === id);
             if (!r) return;
-            document.getElementById('resource-detail-box').classList.remove('hidden');
-            document.getElementById('r-title').innerText = r.title;
-            document.getElementById('r-curr').innerText = r.curr;
-            document.getElementById('r-auth').innerText = r.auth;
-            document.getElementById('r-acc').innerText = r.acc;
-            document.getElementById('r-purp').innerText = r.purp;
-            document.getElementById('r-relevance').innerHTML = "<strong>Đóng góp trực tiếp:</strong> " + r.relevance;
+            document.getElementById('resource-detail-box-full').classList.remove('hidden');
+            document.getElementById('r-title-full').innerText = r.title;
+            document.getElementById('r-curr-full').innerText = r.curr;
+            document.getElementById('r-auth-full').innerText = r.auth;
+            document.getElementById('r-acc-full').innerText = r.acc;
+            document.getElementById('r-purp-full').innerText = r.purp;
+            document.getElementById('r-relevance-full').innerHTML = "<strong>Đóng góp trực tiếp:</strong> " + r.relevance;
         }
 
+
         // BÀI 3: PROMPT LAB INTERACTIVE PLAYGROUND DATA
-        const promptTasks = {
+        const promptTasksFull = {
             1: {
-                title: "Tác vụ 1: Tóm tắt văn bản",
+                title: "Tác vụ 1: Tóm tắt bài đọc/tài liệu học thuật: \"Trí tuệ nhân tạo (AI) là gì?\"",
                 basic: {
                     prompt: "“Hãy tóm tắt bài viết này”",
                     output: "AI (Trí tuệ nhân tạo) là công nghệ giúp máy móc có khả năng học hỏi, suy nghĩ và xử lý thông tin giống con người. AI có thể học từ dữ liệu, phân tích, dự đoán, tự động hóa công việc và tương tác với con người thông qua chatbot hay trợ lý ảo.\n\nTrong cuộc sống hằng ngày, AI xuất hiện ở nhiều ứng dụng như Facebook gợi ý kết bạn, Google Dịch, TikTok và YouTube đề xuất video, ứng dụng làm đẹp nhận diện khuôn mặt hay robot hút bụi tự di chuyển trong nhà."
@@ -1018,7 +1208,7 @@
                 }
             },
             2: {
-                title: "Tác vụ 2: Giải thích Học sâu",
+                title: "Tác vụ 2: Giải thích khái niệm phức tạp: \"Học sâu\"",
                 basic: {
                     prompt: "“Giải thích về Học sâu.”",
                     output: "Học sâu (Deep Learning) là một nhánh của Trí tuệ nhân tạo (AI) và Học máy (Machine Learning). Công nghệ này giúp máy tính học từ một lượng dữ liệu rất lớn để tự nhận biết, phân tích và đưa ra kết quả giống cách con người suy nghĩ.\n\nĐiểm đặc biệt của Học sâu là sử dụng mạng nơ-ron nhân tạo (Artificial Neural Networks) mô phỏng cách hoạt động của não người. Mạng này gồm nhiều 'lớp' xử lý thông tin nên được gọi là 'học sâu'."
@@ -1033,7 +1223,7 @@
                 }
             },
             3: {
-                title: "Tác vụ 3: Tạo bộ đề ôn tập",
+                title: "Tác vụ 3: Tạo bộ câu hỏi ôn tập cho một chủ đề: \"Trí tuệ nhân tạo\"",
                 basic: {
                     prompt: "“Tạo câu hỏi ôn tập về trí tuệ nhân tạo.”",
                     output: "Câu hỏi ôn tập về Trí tuệ nhân tạo (AI)\n\nI. Câu hỏi mức độ dễ\n\nCâu 1: AI là viết tắt của cụm từ nào?\nĐáp án: Artificial Intelligence (Trí tuệ nhân tạo).\n\nCâu 2: Mục tiêu chính của AI là gì?\nĐáp án: Giúp máy móc có khả năng học hỏi và xử lý thông tin giống con người.\n\nCâu 3: Nêu 2 ví dụ về AI trong đời sống hằng ngày.\nĐáp án: Google Translate, robot hút bụi, TikTok đề xuất video, ChatGPT."
@@ -1049,118 +1239,139 @@
             }
         };
 
-        let currentPromptTask = 1;
-        let currentPromptLevel = 'basic';
+        let currentPromptTaskFull = 1;
+        let currentPromptLevelFull = 'basic';
 
-        function selectPromptTask(num) {
-            currentPromptTask = num;
-            // Update buttons styling
+        function selectPromptTaskFull(num) {
+            currentPromptTaskFull = num;
             for(let i=1; i<=3; i++) {
-                const btn = document.getElementById('p-task-' + i);
+                const btn = document.getElementById('p-task-' + i + '-full');
                 if(i === num) {
                     btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-800 text-white transition";
                 } else {
                     btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-800/10 text-amber-950 transition";
                 }
             }
-            updatePromptPlayground();
+            updatePromptPlaygroundFull();
         }
 
-        function selectPromptLevel(lvl) {
-            currentPromptLevel = lvl;
+        function selectPromptLevelFull(lvl) {
+            currentPromptLevelFull = lvl;
             const levels = ['basic', 'improved', 'advanced'];
             levels.forEach(l => {
-                const btn = document.getElementById('p-lvl-' + l);
+                const btn = document.getElementById('p-lvl-' + l + '-full');
                 if(l === lvl) {
                     btn.className = "flex-1 py-1 text-xs font-semibold rounded-lg bg-amber-800 text-white transition";
                 } else {
                     btn.className = "flex-1 py-1 text-xs font-semibold rounded-lg text-amber-950 transition";
                 }
             });
-            updatePromptPlayground();
+            updatePromptPlaygroundFull();
         }
 
-        function updatePromptPlayground() {
-            const data = promptTasks[currentPromptTask][currentPromptLevel];
-            document.getElementById('prompt-display-area').innerText = data.prompt;
-            document.getElementById('prompt-output-area').innerText = data.output;
+        function updatePromptPlaygroundFull() {
+            const data = promptTasksFull[currentPromptTaskFull][currentPromptLevelFull];
+            document.getElementById('prompt-display-area-full').innerText = data.prompt;
+            document.getElementById('prompt-output-area-full').innerText = data.output;
         }
+
 
         // BÀI 4: COLLABORATION TOOLS LIVE SIMULATOR DATA
-        const collabToolsData = {
+        const collabToolsDataFull = {
             trello: {
-                name: "Trello Board (Kanban Setup)",
-                html: `<div class="grid grid-cols-4 gap-2 text-xs">
-                    <div class="bg-slate-800 p-2 rounded">
-                        <span class="font-bold text-amber-400 block mb-2 border-b border-slate-700 pb-1">To Do</span>
-                        <div class="bg-slate-750 p-1.5 rounded mb-1.5">Tạo file nháp cấu trúc tiếng Ả Rập</div>
-                        <div class="bg-slate-750 p-1.5 rounded mb-1.5">Thu thập link học liệu PDF</div>
+                name: "Trello Board Dashboard (Kanban Workflow)",
+                html: `<div class="grid grid-cols-1 md:grid-cols-4 gap-2 text-xs">
+                    <div class="bg-slate-800 p-2 rounded border border-slate-700">
+                        <span class="font-bold text-amber-400 block mb-2 border-b border-slate-700 pb-1"><i class="fa-solid fa-list-check mr-1"></i> To Do</span>
+                        <div class="bg-slate-750 p-2 rounded mb-2 shadow-sm">
+                            <p class="font-bold">Thiết kế Slide / Infographic</p>
+                            <span class="text-[9px] text-slate-400 block mt-1">Giao: Ban Đồ Họa</span>
+                        </div>
                     </div>
-                    <div class="bg-slate-800 p-2 rounded">
-                        <span class="font-bold text-blue-400 block mb-2 border-b border-slate-700 pb-1">Doing</span>
-                        <div class="bg-slate-750 p-1.5 rounded mb-1.5">Thiết kế Slide thuyết trình nhóm</div>
-                        <div class="bg-slate-750 p-1.5 rounded mb-1.5">Biên soạn 'Cách làm chủ bài đọc 2A'</div>
+                    <div class="bg-slate-800 p-2 rounded border border-slate-700">
+                        <span class="font-bold text-blue-400 block mb-2 border-b border-slate-700 pb-1"><i class="fa-solid fa-spinner mr-1"></i> In Progress</span>
+                        <div class="bg-slate-750 p-2 rounded mb-2 shadow-sm">
+                            <p class="font-bold">Biên soạn nội dung "Cách làm chủ bài đọc 2A"</p>
+                            <span class="text-[9px] text-amber-400 block mt-1">Giao: Cao Đức Phát</span>
+                        </div>
+                        <div class="bg-slate-750 p-2 rounded mb-2 shadow-sm">
+                            <p class="font-bold">Quay clip phỏng vấn thu thập dữ liệu</p>
+                            <span class="text-[9px] text-slate-400 block mt-1">Giao: Ban Truyền Thông</span>
+                        </div>
                     </div>
-                    <div class="bg-slate-800 p-2 rounded">
-                        <span class="font-bold text-orange-400 block mb-2 border-b border-slate-700 pb-1">Need To Fix</span>
-                        <div class="bg-slate-750 p-1.5 rounded mb-1.5">Sửa lỗi chính tả phần MSA</div>
+                    <div class="bg-slate-800 p-2 rounded border border-slate-700">
+                        <span class="font-bold text-orange-400 block mb-2 border-b border-slate-700 pb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Need To Fix</span>
+                        <div class="bg-slate-750 p-2 rounded mb-2 shadow-sm">
+                            <p class="font-bold">Sửa lỗi chính tả phần tiếng Ả Rập</p>
+                            <span class="text-[9px] text-amber-400 block mt-1">Yêu cầu bởi: Cao Đức Phát</span>
+                        </div>
                     </div>
-                    <div class="bg-slate-800 p-2 rounded">
-                        <span class="font-bold text-emerald-400 block mb-2 border-b border-slate-700 pb-1">Done</span>
-                        <div class="bg-slate-750 p-1.5 rounded mb-1.5">Xác lập danh sách thành viên nhóm</div>
-                        <div class="bg-slate-750 p-1.5 rounded mb-1.5">Cấu hình cây thư mục trên Drive</div>
+                    <div class="bg-slate-800 p-2 rounded border border-slate-700">
+                        <span class="font-bold text-emerald-400 block mb-2 border-b border-slate-700 pb-1"><i class="fa-solid fa-square-check mr-1"></i> Done</span>
+                        <div class="bg-slate-750 p-2 rounded mb-2 shadow-sm">
+                            <p class="font-bold">Xác lập danh sách nhóm & cây thư mục</p>
+                            <span class="text-[9px] text-slate-400 block mt-1">Hoàn thành bởi: Nhóm trưởng</span>
+                        </div>
                     </div>
                 </div>`
             },
             docs: {
-                name: "Google Docs (Collaborative Environment)",
+                name: "Google Docs (Real-time Peer-Review Session)",
                 html: `<div class="space-y-2 text-xs">
-                    <p class="text-emerald-400">// Bạn đang ở chế độ Suggesting (Gợi ý)</p>
-                    <div class="bg-slate-800 p-3 rounded space-y-2 border border-slate-750">
-                        <p class="text-slate-300">"Học phần tiếng Ả Rập 2A đòi hỏi người học phải phân biệt rạch ròi các dạng cấu trúc câu <span class="bg-yellow-500/20 text-yellow-300 border-b border-yellow-500">[Gợi ý từ Cao Đức Phát: Thêm 'đặc biệt là câu điều kiện']</span> để tránh nhầm lẫn khi làm bài thi đọc hiểu."</p>
+                    <p class="text-emerald-400 font-mono">// Bạn đang ở chế độ Suggesting (Gợi ý chỉnh sửa)</p>
+                    <div class="bg-slate-800 p-4 rounded-xl space-y-2 border border-slate-750 leading-relaxed text-slate-300">
+                        <p class="text-xs">
+                            "Học phần tiếng Ả Rập 2A đòi hỏi người học phải phân biệt rạch ròi các dạng cấu trúc câu 
+                            <span class="bg-yellow-500/20 text-yellow-300 border-b-2 border-yellow-500 px-1 font-bold">
+                                [Gợi ý từ Cao Đức Phát: Thêm 'đặc biệt là hệ thống câu điều kiện và câu bị động đặc thù']
+                            </span> để tránh các lỗi ngữ pháp cơ bản khi làm đề đọc hiểu chính quy tại ULIS."
+                        </p>
                     </div>
-                    <div class="text-[10px] text-slate-400">Lịch sử phiên bản (Version History) ghi nhận 14 đợt chỉnh sửa lớn của bạn trong tuần qua.</div>
+                    <div class="bg-slate-850 p-2 rounded text-[10px] text-slate-400 flex items-center justify-between">
+                        <span>Lịch sử phiên bản (Version History) ghi nhận 14 đợt đóng góp của bạn.</span>
+                        <span class="text-amber-400">Cao Đức Phát đã sửa 5 phút trước</span>
+                    </div>
                 </div>`
             },
             drive: {
-                name: "Google Drive (Logical Folder Tree)",
+                name: "Google Drive (Hierarchical Enterprise File Tree)",
                 html: `<div class="space-y-2 text-xs">
-                    <p class="text-slate-400">Cấu trúc phân mục cây thư mục lưu trữ khoa học:</p>
-                    <div class="bg-slate-800 p-3 rounded space-y-1">
-                        <div>📁 01. Tài liệu tham khảo tiếng Ả Rập</div>
-                        <div class="pl-4">└─ 📄 [BT2_TaiLieu]_Arabic_Diglossia_Review_[CaoDucPhat].pdf</div>
-                        <div>📁 02. Nội dung Cẩm nang số</div>
-                        <div class="pl-4">└─ 📄 [BT4_NoiDung]_HuongDanTuHocTiengARap_[CaoDucPhat].docx</div>
-                        <div>📁 03. Thiết kế & Hình ảnh</div>
-                        <div>📁 04. Video & Audio</div>
+                    <p class="text-slate-400 font-bold">Quy chuẩn đặt tên tệp thống nhất của nhóm [Mã_Nhiệm_Vụ]_[Tên_Tài_Liệu]_[Tên_Cá_Nhân]:</p>
+                    <div class="bg-slate-800 p-4 rounded-xl space-y-2 font-mono">
+                        <div>📁 [01_TaiLieu]_Tài_liệu_tham_khảo_tiếng_Ả_Rập</div>
+                        <div class="pl-4 text-amber-400">└─ 📄 [BT2_TaiLieu]_Arabic_Diglossia_Review_[CaoDucPhat].pdf</div>
+                        <div>📁 [02_CamNang]_Nội_dung_Cẩm_nang_số</div>
+                        <div class="pl-4 text-emerald-400">└─ 📄 [BT4_NoiDung]_HuongDanTuHocTiengARap_[CaoDucPhat].docx</div>
+                        <div>📁 [03_ThietKe]_Thiết_Kế_&_Hình_ảnh</div>
+                        <div>📁 [04_Media]_Video_&_Audio</div>
                     </div>
                 </div>`
             },
             discord: {
-                name: "Discord Channel Workspace",
+                name: "Discord Team Server Logs (Resolving Group Friction)",
                 html: `<div class="space-y-2 text-xs">
                     <div class="flex items-center gap-2 border-b border-slate-800 pb-2 text-[10px] text-slate-400">
                         <span># general-chat</span>
                         <span># announcements</span>
-                        <span class="text-white font-bold"># ban-noi-dung</span>
+                        <span class="text-white font-bold"><i class="fa-solid fa-hashtag mr-0.5"></i> ban-noi-dung</span>
                     </div>
-                    <div class="space-y-2 max-h-[150px] overflow-y-auto">
-                        <p><span class="text-amber-400 font-bold">ducphat_ulis:</span> Mọi người ơi, mình đã cập nhật xong cấu trúc bài tập trên Drive nhóm rồi nhé! @ban-noi-dung</p>
-                        <p><span class="text-blue-400 font-bold">linh_linh:</span> Tuyệt vời quá Phát ơi! Nhờ bạn kiểm tra lại phần font chữ tiếng Ả Rập bị lỗi hiển thị.</p>
-                        <p><span class="text-amber-400 font-bold">ducphat_ulis:</span> Đã sửa nhé, mình chuyển sang phông chữ chuẩn hỗ trợ đầy đủ ký tự rồi nha! 👍</p>
+                    <div class="space-y-3 max-h-[160px] overflow-y-auto leading-relaxed">
+                        <p><span class="text-amber-400 font-bold">[10:37 AM] ducphat_ulis:</span> Mọi người ơi, mình đã thiết lập xong khung tài liệu 'Cách làm chủ bài đọc 2A' trên Drive rồi nhé. Nhóm đồ họa thiết kế infographic theo định hướng này nha! @ban-noi-dung</p>
+                        <p><span class="text-blue-400 font-bold">[10:38 AM] linh_linh:</span> Ý tưởng hay quá Phát ơi! Nhóm đồ họa sẽ bắt tay vào kéo lề và chỉnh phông chữ màu cát mộng mơ đồng bộ ngay.</p>
+                        <p><span class="text-amber-400 font-bold">[10:45 AM] ducphat_ulis:</span> @linh_linh nhớ duyệt kỹ lỗi chính tả tiếng Ả Rập để tránh bị lỗi vỡ phông chữ hiển thị lúc xuất bản nha!</p>
                     </div>
                 </div>`
             }
         };
 
-        function selectCollabTool(toolKey) {
-            const data = collabToolsData[toolKey];
-            document.getElementById('collab-plat-name').innerText = data.name;
-            document.getElementById('collab-body').innerHTML = data.html;
+        function selectCollabToolFull(toolKey) {
+            const data = collabToolsDataFull[toolKey];
+            document.getElementById('collab-plat-name-full').innerText = data.name;
+            document.getElementById('collab-body-full').innerHTML = data.html;
 
             const tools = ['trello', 'docs', 'drive', 'discord'];
             tools.forEach(t => {
-                const btn = document.getElementById('collab-' + t);
+                const btn = document.getElementById('collab-' + t + '-full');
                 if (t === toolKey) {
                     btn.className = "flex-1 py-1.5 rounded-lg text-xs font-semibold bg-amber-800 text-white transition";
                 } else {
@@ -1169,40 +1380,41 @@
             });
         }
 
-        // BÀI 5: OKTOBERFEST LAYERS DATA
-        const oktLayers = {
-            1: "<strong>Giai đoạn 1: Xây dựng cấu trúc bằng Gemini</strong><br><br>Đầu tiên, mình sử dụng câu lệnh thiết lập vai trò 'Chuyên gia văn hóa Đức' để Gemini phác thảo nội dung văn bản thô cho Infographic gồm 4 phần cốt lõi: Lịch sử, Hoạt động chính, Trang phục truyền thống và Ẩm thực.<br><br><strong>Hành động cá nhân:</strong> Văn bản thô của AI quá dài dòng và sến súa. Mình trực tiếp thực hiện lược bỏ 40% câu từ thừa, viết lại các câu cực kỳ ngắn gọn và tự tay dịch các thuật ngữ chuyên ngành tiếng Đức (như 'Dirndl', 'Lederhosen', 'O’zapft is!') để đảm bảo độ chính xác học thuật tuyệt đối.",
-            2: "<strong>Giai đoạn 2: Tạo lập hình ảnh độc quyền bằng Banana Pro 2</strong><br><br>Để có tài nguyên hình ảnh chất lượng cao và hoàn toàn tránh được rủi ro vi phạm bản quyền trên mạng, mình đã nhập câu lệnh mô tả chi tiết bằng tiếng Anh nhằm định hình phong cách 3D phẳng (Isometric style) cho bánh Pretzel và ly đồ uống truyền thống vùng Bavaria.<br><br><strong>Hành động cá nhân:</strong> Sử dụng công cụ tách nền số hóa để loại bỏ vùng phông trắng thừa và phối màu lại bằng Photoshop để hình ảnh hòa hợp hoàn hảo với dải màu ấm của toàn bộ trang thiết kế.",
-            3: "<strong>Giai đoạn 3: Thiết kế và dàn trang bằng Canva AI</strong><br><br>Canva AI (Magic Design) hỗ trợ thiết lập một khung bố cục thông minh theo đúng chủ đề màu vàng cát và xanh sậm của bang Bayern nước Đức.<br><br><strong>Hành động cá nhân:</strong> Bố cục tự động của AI chỉ đóng vai trò khung sườn thô. Mình trực tiếp tiến hành sắp xếp lại hệ thống lưới thị giác, chèn thêm các ký tự văn hóa đặc trưng và căn chỉnh lại toàn bộ tỷ lệ lề để hướng mắt người đọc đi từ lịch sử đến thực tiễn một cách logic.",
-            4: "<strong>Giai đoạn 4: Đóng góp của nhà biên tập (Tỷ lệ 40/60)</strong><br><br>Hành động then chốt quyết định chiều sâu của Infographic nằm ở khâu biên tập cuối cùng của con người. Mình đã trực tiếp loại bỏ hoàn toàn các lỗi sai sót nghiêm trọng của AI (ví dụ: AI nhầm lẫn các chi tiết lịch sử lễ hội của các vùng khác nhau nước Đức).<br><br>Đồng thời, mình lồng ghép các câu chào hỏi đặc trưng bằng tiếng Đức bản địa để truyền tải chân thực không khí ngày hội, đưa tỷ lệ sáng tạo cá nhân vượt trên mức 60% so với dữ liệu thô của AI."
+        // BÀI 5: OKTOBERFEST LAYERS DATA (TWICE AS DETAILED - NO CITATIONS)
+        const oktLayersFull = {
+            1: "<strong>Giai đoạn 1: Thiết lập cấu trúc học thuật với Gemini (AI tạo lập kịch bản)</strong><br><br>Đầu tiên, mình sử dụng câu lệnh nhập vai nâng cao để biến Gemini thành một 'Chuyên gia văn hóa Đức'. Yêu cầu đặt ra là phải xây dựng cấu trúc nội dung cô đọng dành cho một Infographic học thuật giới thiệu về lễ hội bia truyền thống Oktoberfest vùng Munich, bang Bayern nước Đức.<br><br><strong>Kết quả nhận về từ AI:</strong> Gemini cung cấp 4 phân mục logic: Lịch sử (bắt đầu từ đám cưới hoàng gia năm 1810), các hoạt động cốt lõi (khai mạc, diễu hành), trang phục truyền thống (Dirndl cho nữ, Lederhosen cho nam), và ẩm thực vùng Bavaria (bánh Pretzel, bia cốc lớn).<br><br><strong>Biên tập & Chỉnh sửa của cá nhân (Cao Đức Phát):</strong> Bản thảo thô của AI rất dài dòng, khô khan và sến súa. Mình trực tiếp tiến hành cắt giảm 40% câu chữ rườm rà, biên dịch chuẩn xác các từ ngữ chuyên ngành tiếng Đức, thiết lập văn phong tươi trẻ, hiện đại, thích hợp cho đối tượng sinh viên năm nhất ULIS.",
+            2: "<strong>Giai đoạn 2: Tạo lập tài nguyên đồ họa độc quyền với Banana Pro 2</strong><br><br>Để sản phẩm Infographic đạt tính chuyên nghiệp cao nhất và hoàn toàn loại bỏ các rủi ro pháp lý liên quan đến bản quyền hình ảnh trực tuyến, mình đã tự thiết kế chuỗi câu lệnh tạo ảnh dạng Isometric (hình học nổi phẳng) bằng công cụ Banana Pro 2.<br><br><strong>Câu lệnh chi tiết đã nhập:</strong> <em>'An isometric infographic element showing a traditional German pretzel and a glass of Bavarian beverage, vector art, clean white background, 3D render style, flat design.'</em><br><br><strong>Kết quả nhận về từ AI:</strong> Hình ảnh sắc nét, mang đúng bản sắc văn hóa ẩm thực Bavaria với dải màu sắc tươi sáng, đúng phong cách đồ họa phẳng hiện đại.<br><br><strong>Biên tập & Chỉnh sửa của cá nhân:</strong> Mình sử dụng các công cụ tách nền số hóa để lọc sạch hoàn toàn phông nền trắng thô, căn chỉnh lại độ sáng tối, tương phản bằng phần mềm đồ họa chuyên nghiệp để đưa hình ảnh về cùng tông màu chủ đạo vàng cát - xanh sậm của tổng thể infographic.",
+            3: "<strong>Giai đoạn 3: Dàn trang và phân bổ lưới thị giác với Canva AI (Magic Design)</strong><br><br>Mình tải toàn bộ tài nguyên hình ảnh và hệ thống văn bản đã được biên dịch sạch sẽ lên Canva, ứng dụng tính năng thiết kế tự động Magic Design để tạo lập một khung thiết kế cơ bản theo phong cách tối giản với tông màu xanh hoàng gia sậm kết hợp sắc vàng cát lấp lánh.<br><br><strong>Kết quả nhận về từ AI:</strong> Canva AI tự động phân chia bố cục 3 cột thông tin dọc khá cân đối, đề xuất phông chữ tiêu đề chân phương, rõ nét.<br><br><strong>Biên tập & Chỉnh sửa của cá nhân:</strong> Bộ khung tự động của AI chỉ đóng vai trò hỗ trợ kết cấu thô. Mình trực tiếp thực hiện căn chỉnh lại hoàn toàn khoảng cách lề, thiết lập lại hệ thống lưới để phân phối thông tin dẫn dắt người xem một cách tự nhiên nhất (từ góc độ lịch sử năm 1810 cho đến trải nghiệm thực tế ngày nay). Mình chèn thêm các hoa văn hình trám xanh trắng đặc trưng của bang Bayern để tạo điểm nhấn thị giác sâu sắc.",
+            4: "<strong>Giai đoạn 4: Sự kết hợp hoàn hảo giữa sản phẩm AI và đóng góp cá nhân (Quy tắc 40/60)</strong><br><br>Hành động then chốt tạo nên chất lượng thật sự của sản phẩm nằm ở khâu biên tập chuyên sâu của cá nhân (chiếm trên 60% hàm lượng chất xám tổng thể, AI chỉ hỗ trợ dưới 40% khung kỹ thuật thô).<br><br><strong>Các khía cạnh đóng góp cá nhân nổi bật:</strong><br>- <em>Nội địa hóa ngôn ngữ:</em> Chuyển đổi văn phong khô khan của máy thành ngôn ngữ tự nhiên, lồng ghép các câu chào hỏi vùng Bavaria như 'Servus!', 'O'zapft is!' để tạo không khí lễ hội sống động.<br>- <em>Kiểm chứng học thuật nghiêm ngặt:</em> AI của Gemini thường xuyên gặp lỗi nghiêm trọng khi nhầm lẫn các chi tiết văn hóa ẩm thực giữa các vùng miền khác nhau của nước Đức. Mình trực tiếp kiểm chứng chéo thông tin bằng sách chuyên khảo để loại bỏ các chi tiết nhầm lẫn này, bảo toàn tính chính xác tuyệt đối cho infographic.<br>- <em>Sắp đặt thị giác thủ công:</em> Tự tay kéo thả, cân lề, điều phối khoảng trống để tạo nhịp thở thị giác hoàn hảo cho người đọc."
         };
 
-        function selectOktoberfestLayer(num) {
-            document.getElementById('okt-description-box').innerHTML = oktLayers[num];
+        function selectOktoberfestLayerFull(num) {
+            document.getElementById('okt-description-box-full').innerHTML = oktLayersFull[num];
             for (let i = 1; i <= 4; i++) {
-                const btn = document.getElementById('okt-layer-' + i);
+                const btn = document.getElementById('okt-layer-' + i + '-full');
                 if (i === num) {
-                    btn.className = "flex-1 py-1 text-xs font-semibold rounded bg-amber-800 text-white transition";
+                    btn.className = "flex-1 py-1.5 text-xs font-semibold rounded bg-amber-800 text-white transition";
                 } else {
-                    btn.className = "flex-1 py-1 text-xs font-semibold rounded bg-amber-800/10 text-amber-950 transition";
+                    btn.className = "flex-1 py-1.5 text-xs font-semibold rounded bg-amber-800/10 text-amber-950 transition";
                 }
             }
         }
 
+
         // BÀI 6: PRINCIPLES MAP DATA
-        const principlesData = {
-            1: "<strong>1. Nguyên tắc Ý tưởng tiên quyết:</strong> Luôn tự động não, xây dựng dàn bài nháp và định hình cấu trúc tư duy cá nhân trước khi mở bất kỳ công cụ AI nào. AI chỉ đóng vai trò là một người phản biện và hỗ trợ triển khai kỹ thuật.",
-            2: "<strong>2. Nguyên tắc Bộ lọc hoài nghi:</strong> Coi mọi thông tin, dữ liệu học thuật do AI cung cấp chỉ dừng lại ở mức độ giả thuyết. Bắt buộc phải thực hiện kiểm chứng chéo bằng các nguồn sách chính thống hoặc cơ sở dữ liệu thư viện VNU-LIC.",
-            3: "<strong>3. Nguyên tắc Minh bạch nguồn gốc:</strong> Luôn tự giác khai báo thành thật, rõ ràng về công cụ AI, phiên bản sử dụng (ví dụ: ChatGPT GPT-4o, Gemini Advanced) và mục đích hỗ trợ cụ thể ở cuối mọi bài nộp học thuật.",
-            4: "<strong>4. Nguyên tắc Chủ thể sáng tạo (Quy tắc 40/60):</strong> Giữ vững tỷ lệ đóng góp chất xám cá nhân luôn trên mức 60%, AI chỉ đóng vai trò kỹ thuật hỗ trợ định dạng và thu thập ý tưởng dưới 40% sản phẩm cuối cùng.",
-            5: "<strong>5. Nguyên tắc Bảo mật dữ liệu học tập:</strong> Tuyệt đối không tải lên các tài liệu nội bộ của nhà trường, đề kiểm tra chưa công bố hoặc các thông tin cá nhân của bản thân và bạn bè lên các nền tảng AI mở.",
-            6: "<strong>6. Nguyên tắc Phát triển năng lực thực chất:</strong> Chỉ sử dụng AI như một công cụ hỗ trợ mở rộng hiểu biết, tuyệt đối không được dùng AI để đối phó lười biếng với các kỳ hạn nộp bài tập (Deadlines)."
+        const principlesDataFull = {
+            1: "<strong>1. Nguyên tắc Ý tưởng tiên quyết:</strong> Luôn chủ động động não (brainstorming), tự xây dựng dàn ý phác thảo thô của cá nhân trước khi mở bất kỳ công cụ AI nào để tránh hiện tượng lười tư duy, ỷ lại.",
+            2: "<strong>2. Nguyên tắc Bộ lọc hoài nghi:</strong> Coi mọi dữ liệu, thông tin và tóm tắt học thuật do AI cung cấp chỉ dừng lại ở mức giả thuyết tham khảo. Bắt buộc thực hiện đối chiếu, kiểm chứng chéo bằng sách chuyên khảo chính thống.",
+            3: "<strong>3. Nguyên tắc Minh bạch nguồn gốc:</strong> Luôn khai báo trung thực, chi tiết và rõ ràng về tên công cụ AI, phiên bản sử dụng (ví dụ: ChatGPT 4o, Claude 3.5 Sonnet) và mục đích hỗ trợ cụ thể ở cuối mọi bài nộp học thuật.",
+            4: "<strong>4. Nguyên tắc Chủ thể sáng tạo (Quy tắc 40/60):</strong> Giữ vững tỷ lệ đóng góp chất xám cá nhân luôn trên mức 60% (viết bài, phân tích, phản biện), AI chỉ đóng vai trò hỗ trợ kỹ thuật và định dạng dưới 40% tác phẩm.",
+            5: "<strong>5. Nguyên tắc Bảo mật dữ liệu:</strong> Tuyệt đối không tải lên các tài liệu học tập nội bộ, đề thi chưa công bố hoặc thông tin cá nhân của bản thân và bạn bè lên các nền tảng AI tạo sinh mở.",
+            6: "<strong>6. Nguyên tắc Phát triển năng lực thực chất:</strong> Chỉ dùng AI để nâng cao hiểu biết, giải thích các khái niệm khó hiểu hoặc kích thích tư duy sáng tạo; tuyệt đối không dùng AI để đối phó lười biếng với các kỳ hạn nộp bài tập."
         };
 
-        function selectPrinciple(num) {
-            document.getElementById('principle-desc-box').innerHTML = principlesData[num];
+        function selectPrincipleFull(num) {
+            document.getElementById('principle-desc-box-full').innerHTML = principlesDataFull[num];
             for (let i = 1; i <= 6; i++) {
-                const btn = document.getElementById('pr-btn-' + i);
+                const btn = document.getElementById('pr-btn-' + i + '-full');
                 if (i === num) {
                     btn.className = "p-3 bg-amber-800 text-white rounded-xl border border-amber-800/20 text-xs font-semibold transition text-center shadow-sm";
                 } else {
@@ -1211,15 +1423,16 @@
             }
         }
 
+
         // INIT LOAD FUNCTIONS
         window.onload = function() {
-            playStep(1);
-            buildResourceTable();
-            showResourceDetail(1);
-            updatePromptPlayground();
-            selectCollabTool('trello');
-            selectOktoberfestLayer(1);
-            selectPrinciple(1);
+            playStepFull(1);
+            buildResourceTableFull();
+            showResourceDetailFull(1);
+            updatePromptPlaygroundFull();
+            selectCollabToolFull('trello');
+            selectOktoberfestLayerFull(1);
+            selectPrincipleFull(1);
         };
     </script>
 
