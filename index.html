@@ -6,8 +6,8 @@
     <title>Cao Đức Phát - Góc Nhỏ Học Tập & Sáng Tạo</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Phông chữ Google Fonts tối ưu hóa 100% hiển thị tiếng Việt dấu chuẩn, không bị lỗi vỡ ký tự -->
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- Phông chữ Google Fonts tối ưu hóa 100% hiển thị tiếng Việt và Amiri cho thư pháp Ả Rập -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -719,7 +719,7 @@
                             </div>
                             <div class="bg-amber-800/5 p-4 rounded-xl space-y-2">
                                 <h4 class="font-bold text-amber-950 text-sm uppercase tracking-wider"><i class="fa-solid fa-lightbulb"></i> Bài học rút ra:</h4>
-                                <p class="text-[#A04000] text-sm leading-relaxed">
+                                <p class="text-xs text-amber-900 leading-relaxed">
                                     AI là người gia sư kích thích tư duy, tuyệt đối không được dùng AI để chép bài làm hộ. Bản lĩnh trung thực chính là nền móng để bạn tiến xa hơn trên con đường học tập lâu dài.
                                 </p>
                             </div>
@@ -799,14 +799,30 @@
                 </div>
             </div>
 
-            <!-- Eastern Arabic Proverb -->
-            <div class="pt-8 text-center space-y-4">
-                <p class="text-3xl text-[#A04000] tracking-wider font-serif" dir="rtl">
-                    "من تعلم لغة جديدة يكتسب روحاً جديدة"
-                </p>
-                <p class="text-sm text-amber-850 italic font-light">
-                    (Ai học một ngôn ngữ mới sẽ có thêm một tâm hồn mới)
-                </p>
+            <!-- Eastern Arabic Proverb Box Styled exactly like the image -->
+            <div class="relative overflow-hidden rounded-[2rem] py-12 px-8 text-center shadow-2xl max-w-5xl mx-auto my-12" 
+                 style="background: linear-gradient(115deg, #421D0F 10%, #763313 60%, #9D4315 100%); border: 1px solid rgba(241, 196, 15, 0.15); box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3), 0 20px 40px rgba(66, 29, 15, 0.15);">
+                
+                <!-- Diagonal volumetric light beam overlay -->
+                <div class="absolute inset-0 pointer-events-none opacity-25" 
+                     style="background: linear-gradient(35deg, transparent 40%, rgba(254, 243, 199, 0.4) 55%, transparent 70%); filter: blur(10px);"></div>
+                
+                <!-- Glowing light leak from top-right -->
+                <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-500/10 blur-[80px] pointer-events-none"></div>
+
+                <div class="relative z-10 space-y-6">
+                    <!-- Arabic Calligraphy styled beautifully -->
+                    <p class="text-3xl sm:text-4xl md:text-5xl tracking-wide leading-loose" 
+                       style="font-family: 'Amiri', serif; color: #F1C40F; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);" 
+                       dir="rtl">
+                        من يتعلم لغة جديدة يكتسب روحاً جديدة
+                    </p>
+                    <!-- Vietnamese translation styled beautifully -->
+                    <p class="text-xs sm:text-sm md:text-base italic font-light tracking-wide text-white/90" 
+                       style="font-family: 'Be Vietnam Pro', sans-serif;">
+                        "Ai học một ngôn ngữ mới sẽ có thêm một tâm hồn mới"
+                    </p>
+                </div>
             </div>
 
         </div>
@@ -1442,7 +1458,7 @@
         // BÀI 5: OKTOBERFEST LAYERS DATA (TWICE AS DETAILED - NO CITATIONS)
         const oktLayersFull = {
             1: "<strong>Giai đoạn 1: Thiết lập cấu trúc học thuật với Gemini (AI tạo lập kịch bản)</strong><br><br>Đầu tiên, mình sử dụng câu lệnh nhập vai nâng cao để biến Gemini thành một 'Chuyên gia văn hóa Đức'. Yêu cầu đặt ra là phải xây dựng cấu trúc nội dung cô đọng dành cho một Infographic học thuật giới thiệu về lễ hội bia truyền thống Oktoberfest vùng Munich, bang Bayern nước Đức.<br><br><strong>Kết quả nhận về từ AI:</strong> Gemini cung cấp 4 phân mục logic: Lịch sử (bắt đầu từ đám cưới hoàng gia năm 1810), các hoạt động cốt lõi (khai mạc, diễu hành), trang phục truyền thống (Dirndl cho nữ, Lederhosen cho nam), và ẩm thực vùng Bavaria (bánh Pretzel, bia cốc lớn).<br><br><strong>Biên tập & Chỉnh sửa của cá nhân (Cao Đức Phát):</strong> Bản thảo thô của AI rất dài dòng, khô khan và sến súa. Mình trực tiếp tiến hành cắt giảm 40% câu chữ rườm rà, biên dịch chuẩn xác các từ ngữ chuyên ngành tiếng Đức, thiết lập văn phong tươi trẻ, hiện đại, thích hợp cho đối tượng sinh viên năm nhất ULIS.",
-            2: "<strong>Giai đoạn 2: Tạo lập tài nguyên đồ họa độc quyền với Banana Pro 2</strong><br><br>Để sản phẩm Infographic đạt tính chuyên nghiệp cao nhất và hoàn toàn loại bỏ các rủi ro pháp lý liên quan đến bản quyền hình ảnh trực tuyến, mình đã tự thiết kế chuỗi câu lệnh tạo ảnh dạng Isometric (hình học nổi phẳng) bằng công cụ Banana Pro 2.<br><br><strong>Câu lệnh chi tiết đã nhập:</strong> <em>'An isometric infographic element showing a traditional German pretzel and a glass of Bavarian beverage, vector art, clean white background, 3D render style, flat design.'</em><br><br><strong>Kết quả nhận về từ AI:</strong> Hình ảnh sắc nét, mang đúng bản sắc văn hóa ẩm thực Bavaria với dải màu sắc tươi sáng, đúng phong cách đồ họa phẳng hiện đại.<br><br><strong>Biên tập & Chỉnh sửa của cá nhân:</strong> Mình sử dụng các công cụ tách nền số hóa để loại bỏ vùng phông trắng thừa và phối màu lại bằng Photoshop để hình ảnh hòa hợp hoàn hảo với dải màu ấm của toàn bộ trang thiết kế.",
+            2: "<strong>Giai đoạn 2: Tạo lập tài nguyên đồ họa độc quyền với Banana Pro 2</strong><br><br>Để sản phẩm Infographic đạt tính chuyên nghiệp cao nhất và hoàn toàn loại bỏ các rủi ro pháp lý liên quan đến bản quyền hình ảnh trực tuyến, mình đã tự thiết kế chiỗi câu lệnh tạo ảnh dạng Isometric (hình học nổi phẳng) bằng công cụ Banana Pro 2.<br><br><strong>Câu lệnh chi tiết đã nhập:</strong> <em>'An isometric infographic element showing a traditional German pretzel and a glass of Bavarian beverage, vector art, clean white background, 3D render style, flat design.'</em><br><br><strong>Kết quả nhận về từ AI:</strong> Hình ảnh sắc nét, mang đúng bản sắc văn hóa ẩm thực Bavaria với dải màu sắc tươi sáng, đúng phong cách đồ họa phẳng hiện đại.<br><br><strong>Biên tập & Chỉnh sửa của cá nhân:</strong> Mình sử dụng các công cụ tách nền số hóa để loại bỏ vùng phông trắng thừa và phối màu lại bằng Photoshop để hình ảnh hòa hợp hoàn hảo với dải màu ấm của toàn bộ trang thiết kế.",
             3: "<strong>Giai đoạn 3: Dàn trang và phân bổ lưới thị giác với Canva AI (Magic Design)</strong><br><br>Mình tải toàn bộ tài nguyên hình ảnh và hệ thống văn bản đã được biên dịch sạch sẽ lên Canva, ứng dụng tính năng thiết kế tự động Magic Design để tạo lập một khung thiết kế cơ bản theo phong cách tối giản với tông màu xanh hoàng gia sậm kết hợp sắc vàng cát lấp lánh.<br><br><strong>Kết quả nhận về từ AI:</strong> Canva AI tự động phân chia bố cục 3 cột thông tin dọc khá cân đối, đề xuất phông chữ tiêu đề chân phương, rõ nét.<br><br><strong>Biên tập & Chỉnh sửa của cá nhân:</strong> Bộ khung tự động của AI chỉ đóng vai trò hỗ trợ kết cấu thô. Mình trực tiếp thực hiện căn chỉnh lại hoàn toàn khoảng cách lề, thiết lập lại hệ thống lưới để phân phối thông tin dẫn dắt người xem một cách tự nhiên nhất (từ góc độ lịch sử năm 1810 cho đến trải nghiệm thực tế ngày nay). Mình chèn thêm các hoa văn hình trám xanh trắng đặc trưng của bang Bayern để tạo điểm nhấn thị giác sâu sắc.",
             4: "<strong>Giai đoạn 4: Sự kết hợp hoàn hảo giữa sản phẩm AI và đóng góp cá nhân (Quy tắc 40/60)</strong><br><br>Hành động then chốt quyết định chiều sâu của Infographic nằm ở khâu biên tập chuyên sâu của cá nhân (chiếm trên 60% hàm lượng chất xám tổng thể, AI chỉ hỗ trợ dưới 40% khung kỹ thuật thô).<br><br><strong>Các khía cạnh đóng góp cá nhân nổi bật:</strong><br>- <em>Nội địa hóa ngôn ngữ:</em> Chuyển đổi văn phong khô khan của máy thành ngôn ngữ tự nhiên, lồng ghép các câu chào hỏi vùng Bavaria như 'Servus!', 'O'zapft is!' để tạo không khí lễ hội sống động.<br>- <em>Kiểm chứng học thuật nghiêm ngặt:</em> AI của Gemini thường xuyên gặp lỗi nghiêm trọng khi nhầm lẫn các chi tiết văn hóa ẩm thực giữa các vùng miền khác nhau của nước Đức. Mình trực tiếp kiểm chứng chéo thông tin bằng sách chuyên khảo để loại bỏ các chi tiết nhầm lẫn này, bảo toàn tính chính xác tuyệt đối cho infographic.<br>- <em>Sắp đặt thị giác thủ công:</em> Tự tay kéo lề, căn chỉnh lại kích thước chữ, sắp xếp lại bố cục để tấm infographic trông cân đối, dễ nhìn nhất."
         };
